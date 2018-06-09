@@ -1,0 +1,99 @@
+@function __getIndex ($el, $val, $target: 'value', $operator: 0) {
+    $res: 'null';
+
+    @if (type-of($el) == 'map' or type-of($el) == 'list') and $target != 'key'{
+        @if type-of($el) == 'map' {
+            @each $k, $v in $el {
+                @if $v == $val {
+                    $res: index($el, ($k $v)) + $operator;
+                    @if $res > length($el) {
+                        @warn 'Assuming index `#{$res}` to be a lower than map length `#{length($el)}`';
+                    }
+                }
+            }
+        } @else if type-of($el) == 'list' {
+            @each $v in $el {
+                @if $v == $val {
+                    $res: index($el, $v) + $operator;
+                    @if $res > length($el) {
+                        @warn 'Assuming index `#{$res}` to be a lower than list length `#{length($el)}`';
+                    }
+                }
+            }
+        }
+    } @else if $target == 'key' and type-of($el) == 'map' {
+        @each $k, $v in $el {
+            @if $k == $val {
+                $res: index($el, ($k $v)) + $operator;
+                @if $res > length($el) {
+                    @warn 'Assuming index `#{$res}` to be a lower than list length `#{length($el)}`';
+                }
+            }
+        }
+    } @else {
+        @warn 'Assuming `#{$el}` to be a `map` or a `list`';
+    }
+
+    @if type-of($res) == 'false' {
+        @warn '`#{$val}` #{$target} not found in `#{$el}`!';
+    }
+
+    @return $res;
+}
+
+@function __getValue ($el, $index, $target: 'value') {
+    $res: 'null';
+
+    @if type-of($el) == 'list' or type-of($el) == 'string' {
+        @if $index <= length($el) {
+            $res: nth($el, $index);
+        } @else {
+            @warn 'Assuming index `#{$index}` to be a lower than max length `#{length($el)}`';
+        }
+    } @else if type-of($el) == 'map' {
+        @if $target == 'key' {
+            $valuesList: map-keys($el);
+            $res: nth($valuesList, $index);
+        } @else {
+            $valuesList: map-values($el);
+            $res: nth($valuesList, $index);
+        }
+    } @else {
+        @warn 'Assuming `#{$el}` to be a `map`, a `list` or a `string`';
+    }
+
+    @return $res;
+}
+
+@function __checkWay ($string) {
+    @if type-of($string) == 'string' {
+        @if $string == 'up' or $string == 'down' or $string == 'only' {
+            @return 'true';
+        } @else {
+            @return 'false';
+        }
+    }
+}
+
+@function __buildMediaQuery ($viewport, $way, $target: 'screen') {
+    $res: 'false';
+    @if $way == 'up' {
+        $minsize: map-get($breakpoints, $viewport);
+        $res: '#{$target} and (min-width: #{$minsize})';
+    } @else if $way == 'down' {
+        $i: __getIndex($breakpoints, $viewport, 'key');
+        $maxsize: __getValue($breakpoints, $i + 1) - 1px;
+        $res: '#{$target} and (max-width: #{$maxsize})';
+    } @else {
+        $i: __getIndex($breakpoints, $viewport, 'key');
+        $minsize: map-get($breakpoints, $viewport);
+        $maxsize: map-get($breakpoints, __getValue($breakpoints, $i + 1, 'key')) - 1px;
+        $res: '#{$target} and (min-width: #{$minsize}) and (max-width: #{$maxsize})';
+    }
+    @return $res;
+}
+
+@function __buildCustomMediaQuery ($minsize, $maxsize, $target: 'screen') {
+    $res: '#{$target} and (min-width: #{$minsize}) and (max-width: #{$maxsize})';
+    @return $res;
+}

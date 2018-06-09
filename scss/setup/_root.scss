@@ -1,0 +1,84 @@
+// breakpoints
+$breakpoints: (
+    xs: 0,
+    s: 375px,
+    m: 768px,
+    l: 1024px,
+    xl: 1280px
+);
+
+// palette
+$primary-palette: (
+    --color-primary: #42378f,
+    --color-primary-dark: #0a0120,
+    --color-success: #3adb76,
+    --color-warning: #ffae00,
+    --color-alert: #f53844,
+    --color-light-grey: #e6e6e6,
+    --color-medium-grey: #cacaca,
+    --color-dark-grey: #8a8a8a,
+    --color-black: #000000,
+    --color-white: #ffffff
+);
+
+@include set-vars($primary-palette);
+
+// grid
+$max-columns-allowed: 12;
+$column-width: 1fr;
+$grid-gap: 10px;
+$grid-gap-x: $grid-gap;
+$grid-gap-y: $grid-gap;
+$cell-align-x: start; // start, center, end, stretch
+$cell-align-y: start; // start, center, end, stretch
+$grid-margin-bottom: 0;
+
+$root: (
+    // // layout
+    // --body-bg: #ffffff,
+    // --scrollbar: 0,
+    // --pgpadding: 30px,
+    // --global-margin-bottom: 8px,
+
+    //css-grid
+    --column-length: $max-columns-allowed,
+    --column-width: $column-width,
+    --grid-gap-x: $grid-gap-x,
+    --grid-gap-y: $grid-gap-y,
+    --grid-gap: var(--grid-gap-x) var(--grid-gap-x),
+    --grid-padding-top: $grid-gap-y,
+    --grid-padding-right: $grid-gap-x,
+    --grid-padding-bottom: $grid-gap-y,
+    --grid-padding-left: $grid-gap-y,
+    --grid-padding: var(--grid-padding-top) var(--grid-padding-right) var(--grid-padding-bottom) var(--grid-padding-left),
+    --grid-align-x: $cell-align-x,
+    --grid-align-y: $cell-align-y,
+    --grid-margin-bottom: $grid-margin-bottom,
+
+    // // typography
+    // --font-family-primary: unquote('Helvetica, Arial, sans-serif'),
+    // --font-family-monospace: unquote('Courier, monospace'),
+    // --font-size-base: 16px,
+    // --font-weight-base: 400,
+    // --line-height-base: 1.2,
+    // --body-color: var(--black),
+    // --headings-margin-bottom: var(--global-margin-bottom),
+    // --paragraph-margin-bottom: var(--global-margin-bottom),
+    // --dt-font-weight: 400,
+    // --font-weight-bold: 700,
+
+    // // cta
+    // --link-color: var(--black),
+    // --link-decoration: underline,
+    // --link-hover-color: var(--black),
+    // --link-hover-decoration: none,
+
+    // // table
+    // --table-cell-padding: 4px,
+    // --table-caption-color: var(--black),
+
+    // // form
+    // --label-margin-bottom: var(--global-margin-bottom),
+);
+
+@include set-vars($root);

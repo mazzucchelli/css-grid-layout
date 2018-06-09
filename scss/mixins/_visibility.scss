@@ -1,0 +1,44 @@
+@mixin show-hide-up($breakpoints) {
+    @for $i from 2 through length($breakpoints) {
+        $name: __getValue($breakpoints, $i, 'key');
+
+        @include breakpoint($name) {
+            .#{$name}-up-show {
+                display: block !important;
+            }
+            .#{$name}-up-hide {
+                display: none !important;
+            }
+        }
+    }
+}
+
+@mixin show-hide-down($breakpoints) {
+    @for $i from 2 through (length($breakpoints) - 1) {
+        $name: __getValue($breakpoints, $i, 'key');
+
+        @include breakpoint($name down) {
+            .#{$name}-down-show {
+                display: block !important;
+            }
+            .#{$name}-down-hide {
+                display: none !important;
+            }
+        }
+    }
+}
+
+@mixin show-hide-only($breakpoints) {
+    @for $i from 1 through (length($breakpoints) - 1) {
+        $name: __getValue($breakpoints, $i, 'key');
+
+        @include breakpoint($name only) {
+            .#{$name}-only-show {
+                display: block !important;
+            }
+            .#{$name}-only-hide {
+                display: none !important;
+            }
+        }
+    }
+}

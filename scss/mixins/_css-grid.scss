@@ -1,0 +1,46 @@
+@mixin __build-grid-cells-system($num: $max-columns-allowed) {
+    @each $k, $v in $breakpoints {
+        @include breakpoint(#{$k}) {
+            @for $i from 1 through $num {
+                .#{$k}#{$i} {
+                    grid-column-end: span #{$i} !important;
+                }
+            }
+        }
+    }
+}
+
+@mixin __build-grid-template-col-system($num: $max-columns-allowed) {
+    @for $i from 1 through $num {
+        [data-template*="#{$i}"] {
+            --column-length: #{$i};
+        }
+    }
+}
+
+@mixin grid($colsnum: var(--column-length), $colwidth: var(--column-width)) {
+    display: grid;
+    padding: var(--grid-padding);
+    grid-gap: var(--grid-gap);
+    grid-template-columns: repeat($colsnum, $colwidth);
+    margin-bottom: var(--grid-margin-bottom);
+}
+
+@mixin template() {
+    display: grid;
+    padding: var(--grid-padding);
+    grid-gap: var(--grid-gap);
+    grid-template-areas: var(--grid-template-areas);
+}
+
+@mixin cell-align($x: var(--x-align), $y: var(--y-align)) {
+    place-self: var(--x-align) var(--y-align);
+}
+
+@mixin cell-align-x($x: var(--x-align)) {
+    justify-self: var(--x-align);
+}
+
+@mixin cell-align-y($y: var(--y-align)) {
+    align-self: var(--y-align);
+}

@@ -1,0 +1,29 @@
+@mixin breakpoint($attrs) {
+    $mq: 'false';
+
+    @if type-of($attrs) == 'string' {
+        @if map-has-key($breakpoints, $attrs) {
+            $mq: __buildMediaQuery($attrs, 'up');
+        }
+    } @else if type-of($attrs) == 'list' {
+        $viewport: __getValue($attrs, 1);
+
+        @if map-has-key($breakpoints, $viewport) {
+            $way: __getValue($attrs, 2);
+
+            @if __checkWay($way) {
+                $mq: __buildMediaQuery($viewport, $way);
+            }
+        } @else if $viewport == 'custom' {
+            $minsize: __getValue($attrs, 2);
+            $maxsize: __getValue($attrs, 3);
+            $mq: __buildCustomMediaQuery($minsize, $maxsize);
+        }
+    }
+
+    @if $mq != 'false' {
+        @media #{$mq} {
+            @content;
+        }
+    }
+}

@@ -1,0 +1,173 @@
+<!doctype html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>tboe</title>
+        <link rel="stylesheet" href="styles/dashboard.css">
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.min.css"/>
+    </head>
+    <body>
+
+        <main>
+            {# <div class="dashboard-container">
+                {% for file in sizeReport %}
+                    <section>
+                        <div class="dashcard dashcard__sizes clearfix">
+                            <div class="dashcard--header">
+                                <p class="dashcard--title">
+                                    <i class="fi-page"></i>
+                                    <strong>{{ file.path }}</strong>
+                                </p>
+                            </div>
+                            <!-- TODO: compare value with prod -->
+                            <div class="dashcard--details align-right">
+                                <p><strong>{{ file.prettySize }}</strong></p>
+                                <p>{{ file.compare }}%</p>
+                            </div>
+                        </div>
+                    </section>
+                {% endfor %}
+            </div> #}
+
+            <div class="dashboard-container">
+
+                {# <section class="tile">
+
+                    <div class="dashcard dashcard__reports">
+                        <div class="dashcard--header">
+                            <p class="dashcard--title">
+                                <i class="fi-graph-bar"></i><strong>Styles report</strong>
+                            </p>
+                        </div>
+                        <div class="dashcard--details">
+                            <ul class="js-accordion accordion" data-accordion data-multi-expand="true" data-allow-all-closed="true">
+
+                                {% for file in scssReport %}
+                                    {% if file.info.length != 0 %}
+                                        <li class="accordion-item file" data-accordion-item>
+                                            <a href="#" class="accordion-title">
+                                                <strong>
+                                                    <span class="file--tot-issues">{{ file.info.length }}</span>
+                                                    <span class="file--path">- {{ file.path }}</span>
+                                                </strong>
+                                            </a>
+                                            <div class="accordion-content" data-tab-content>
+                                                <ul>
+                                                    {% for issue in file.info %}
+                                                        <li class="issue">
+                                                            <span class="issue--line{% if issue.severity == 'error' %} color__alert{% endif %}{% if issue.severity == 'warning' %} color__warning{% endif %}">
+                                                                {% if issue.severity == "error" %}
+                                                                    <i class="fi-prohibited"></i>
+                                                                {% endif %}
+                                                                {% if issue.severity == "warning" %}
+                                                                    <i class="fi-alert"></i>
+                                                                {% endif %}
+                                                                <strong> at line {{ issue.line }}: </strong>
+                                                            </span>
+                                                            <span class="issue--desc">{{ issue.reason }}</span>
+                                                        </li>
+                                                        {% if loop.index != loop.length %}<hr>{% endif %}
+                                                    {% endfor %}
+                                                </ul>
+                                            </div>
+                                        </li>
+                                    {% endif %}
+                                {% endfor %}
+
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="dashcard dashcard__reports">
+                        <div class="dashcard--header">
+                            <p class="dashcard--title">
+                                <i class="fi-graph-bar"></i><strong>JS report</strong>
+                            </p>
+                        </div>
+                        <div class="dashcard--details">
+                            <ul class="js-accordion accordion" data-accordion data-multi-expand="true" data-allow-all-closed="true">
+
+                                {% for file in jsReport %}
+                                    {% if file.info.length != 0 %}
+                                        <li class="accordion-item file" data-accordion-item>
+                                            <a href="#" class="accordion-title">
+                                                <strong>
+                                                    <span class="file--tot-issues">{{ file.info.length }}</span>
+                                                    <span class="file--path">- {{ file.path | string}}</span>
+                                                </strong>
+                                            </a>
+                                            <div class="accordion-content" data-tab-content>
+                                                <ul>
+                                                    {% for issue in file.info %}
+                                                        <li class="issue">
+                                                            <span class="issue--line{% if issue.severity == 2 %} color__alert{% endif %}{% if issue.severity == 1 %} color__warning{% endif %}">
+                                                                {% if issue.severity == 2 %}
+                                                                    <i class="fi-prohibited"></i>
+                                                                {% endif %}
+                                                                {% if issue.severity == 1 %}
+                                                                    <i class="fi-alert"></i>
+                                                                {% endif %}
+                                                                <strong> at line {{ issue.line }}: </strong>
+                                                            </span>
+                                                            <span class="issue--desc">{{ issue.reason }}</span>
+                                                        </li>
+                                                        {% if loop.index != loop.length %}<hr>{% endif %}
+                                                    {% endfor %}
+                                                </ul>
+                                            </div>
+                                        </li>
+                                    {% endif %}
+                                {% endfor %}
+
+                            </ul>
+                        </div>
+                    </div>
+
+                </section> #}
+
+                <section class="grid grid-dashboard">
+                    <div>
+                        <p>
+                            <i class="fi-results"></i><strong>Todo tasks - {{ todoReport.TODO.length }}</strong>
+                        </p>
+                    </div>
+                    <div>
+                        {% for todo in todoReport.TODO %}
+                            <div>
+                                <div>
+                                    <i class="fi-page"></i> <strong>{{ todo.file }}</strong>
+                                </div>
+                                <div>
+                                    <p>at line <strong>{{ todo.line }}</strong>: {{ todo.text }}</p>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <div>
+                        <p>
+                            <i class="fi-results"></i><strong>Fixme tasks - {{ todoReport.FIXME.length }}</strong>
+                        </p>
+                    </div>
+                    <div grid-area="body2">
+                        {% for todo in todoReport.FIXME %}
+                            <div>
+                                <div>
+                                    <i class="fi-page"></i> <strong>{{ todo.file }}</strong>
+                                </div>
+                                <div>
+                                    <p>at line <strong>{{ todo.line }}</strong>: {{ todo.text }}</p>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </section>
+
+            </div>
+        </main>
+
+        <script src="scripts/dashboard.min.js"></script>
+
+    </body>
+</html>

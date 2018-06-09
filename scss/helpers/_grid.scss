@@ -1,0 +1,40 @@
+@include __build-grid-cells-system();
+@include __build-grid-template-col-system();
+
+.grid {
+    @include grid;
+
+    .grid {
+        --grid-padding: 0;
+        --grid-margin-bottom: var(--grid-gap-y);
+    }
+
+    .cell {
+        grid-column-end: span $max-columns-allowed;
+    }
+}
+
+[data-template] {
+    --grid-gap: 0;
+    @include template();
+}
+
+[data-template*="dashboard"] {
+    --grid-padding: 0;
+    --grid-template-areas:
+        'header'
+        'main'
+        'footer';
+}
+
+[data-area*="header"] {
+    grid-area: header;
+}
+
+[data-area*="main"] {
+    grid-area: main;
+}
+
+[data-area*="footer"] {
+    grid-area: footer;
+}
