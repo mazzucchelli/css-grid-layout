@@ -1,0 +1,73 @@
+# - - -
+# Logs
+# - - -
+
+log
+logs
+npm-debug.log*
+*.log
+reports
+
+# - - -
+# Dependency directories
+# - - -
+
+node_modules
+bower_components
+
+# - - -
+# Optional npm cache directory
+# - - -
+
+.npm
+
+# - - -
+# dotenv environment variables file
+# - - -
+
+.env
+
+# - - -
+# Compiled files
+# - - -
+
+app
+build
+docs
+
+# - - -
+# IDE Generated Files & Folders
+# - - -
+
+*.idea
+*.sublime-project
+*.sublime-workspace
+*.settings
+*.vscode
+
+# - - -
+# Git
+# - - -
+
+*.orig
+
+# - - -
+# Sass
+# - - -
+
+.sass-cache/
+*.css.map
+
+# - - -
+# macOS
+# - - -
+
+*.DS_Store
+*__MACOSX
+
+# - - -
+# Others
+# - - -
+
+package-lock.json
+yarn.lock
