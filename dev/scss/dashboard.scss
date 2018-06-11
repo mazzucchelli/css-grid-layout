@@ -18,10 +18,10 @@
         background: var(--bg-right);
     }
 
-    @include breakpoint(l) {
-        --bg-right: var(--color-primary);
-        --bg-left: var(--color-primary-dark);
-    }
+    // @include breakpoint(l) {
+    //     --bg-right: var(--color-primary);
+    //     --bg-left: var(--color-primary-dark);
+    // }
 }
 
 // main {
