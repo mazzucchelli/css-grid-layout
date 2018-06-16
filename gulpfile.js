@@ -10,24 +10,24 @@ const scriptsTask           = require('./tasks/scripts');
 const stylesTask            = require('./tasks/styles');
 const vendorTask            = require('./tasks/vendor');
 const spriteTask            = require('./tasks/sprite');
-const fontsTask             = require('./tasks/fonts');
-const docsTask              = require('./tasks/docs');
-const dashboardTask         = require('./tasks/dashboard');
+// const fontsTask             = require('./tasks/fonts');
+// const docsTask              = require('./tasks/docs');
+// const dashboardTask         = require('./tasks/dashboard');
 
-gulp.task('saveAssetsSize',
-    dashboardTask.saveAssetsSize
-);
+// gulp.task('saveAssetsSize',
+//     dashboardTask.saveAssetsSize
+// );
 
 // $ npm run lurch
-gulp.task('dashboard',
-    gulp.series(
-        dashboardTask.getJsReport,
-        dashboardTask.getTodoReport,
-        dashboardTask.getScssReport,
-        dashboardTask.getFilesizeReport,
-        dashboardTask.compileDashboard
-    )
-);
+// gulp.task('dashboard',
+//     gulp.series(
+//         dashboardTask.getJsReport,
+//         dashboardTask.getTodoReport,
+//         dashboardTask.getScssReport,
+//         dashboardTask.getFilesizeReport,
+//         dashboardTask.compileDashboard
+//     )
+// );
 
 // $ npm run compile
 // $ npm run build
@@ -85,14 +85,14 @@ gulp.task('icons',
 
 // $ npm run compile:fonts
 // $ npm run build:fonts
-gulp.task('fonts',
-    gulp.series(
-        fontsTask.generateFonts,
-        fontsTask.fixFontsPath,
-        fontsTask.generateFontsScss,
-        fontsTask.moveFontFiles
-    )
-);
+// gulp.task('fonts',
+//     gulp.series(
+//         fontsTask.generateFonts,
+//         fontsTask.fixFontsPath,
+//         fontsTask.generateFontsScss,
+//         fontsTask.moveFontFiles
+//     )
+// );
 
 // $ npm run compile:assets
 // $ npm run build:assets
@@ -106,22 +106,22 @@ gulp.task('beautifyScss',
 );
 
 // $ npm run docs
-gulp.task('docs',
-    gulp.series(
-        docsTask.generateSassDocs,
-        docsTask.generateJsDocs
-    )
-);
+// gulp.task('docs',
+//     gulp.series(
+//         docsTask.generateSassDocs,
+//         docsTask.generateJsDocs
+//     )
+// );
 
 // $ npm run docs:scss
-gulp.task('scssDocs',
-    docsTask.generateSassDocs
-);
+// gulp.task('scssDocs',
+//     docsTask.generateSassDocs
+// );
 
 // $ npm run docs:js
-gulp.task('jsDocs',
-    docsTask.generateJsDocs
-);
+// gulp.task('jsDocs',
+//     docsTask.generateJsDocs
+// );
 
 let tasksRunning = false;
 
