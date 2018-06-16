@@ -1,0 +1,53 @@
+h1, h2 , h3, h4, h5, h6 {
+    font-family: $font-family-primary;
+    color: $default-font-color;
+    font-weight: 900;
+    line-height: $default-line-height;
+    letter-spacing: 0;
+    margin-bottom: 6px;
+}
+
+h1 {
+    font-size: 40px;
+}
+
+h2 {
+    font-size: 32px;
+}
+
+h3 {
+    font-size: 26px;
+}
+
+h4 {
+    font-size: 22px;
+}
+
+h5 {
+    font-size: 18px;
+}
+
+h6 {
+    font-size: $default-font-size;
+}
+
+p, a, li, span, td, th {
+    font-family: $font-family-primary;
+    font-size: $default-font-size;
+    color: $default-font-color;
+    font-weight: $default-font-weight;
+    line-height: $default-line-height;
+    letter-spacing: 0;
+}
+
+p, a, span {
+    margin-bottom: 6px;
+}
+
+a {
+    text-decoration: underline;
+}
+
+strong, .strong, th {
+    font-weight: 700;
+}

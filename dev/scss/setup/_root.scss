@@ -8,20 +8,20 @@ $breakpoints: (
 );
 
 // palette
-$primary-palette: (
-    --color-primary: #42378f,
-    --color-primary-dark: #0a0120,
-    --color-success: #3adb76,
-    --color-warning: #ffae00,
-    --color-alert: #f53844,
-    --color-light-grey: #e6e6e6,
-    --color-medium-grey: #cacaca,
-    --color-dark-grey: #8a8a8a,
-    --color-black: #000000,
-    --color-white: #ffffff
+$palette-config: (
+    --c-primary: #42378f,
+    --c-primary-dark: #0a0120,
+    --c-success: #3adb76,
+    --c-warning: #ffae00,
+    --c-alert: #f53844,
+    --c-light-grey: #e6e6e6,
+    --c-medium-grey: #cacaca,
+    --c-dark-grey: #8a8a8a,
+    --c-black: #000000,
+    --c-white: #ffffff
 );
 
-@include set-vars($primary-palette);
+@include set-vars($palette-config);
 
 // grid
 $max-columns-allowed: 12;
@@ -33,7 +33,7 @@ $cell-align-x: start; // start, center, end, stretch
 $cell-align-y: start; // start, center, end, stretch
 $grid-margin-bottom: 0;
 
-$root: (
+$grid-config: (
     // // layout
     // --body-bg: #ffffff,
     // --scrollbar: 0,
@@ -81,4 +81,13 @@ $root: (
     // --label-margin-bottom: var(--global-margin-bottom),
 );
 
-@include set-vars($root);
+@include set-vars($grid-config);
+
+$font-family-primary: 'Lato', Arial, sans-serif;
+$font-family-monospace: Courier, monospace;
+$default-font-size: 16px;
+$default-font-weight: 300;
+$default-light-weight: 300;
+$default-bold-weight: 700;
+$default-line-height: 1.4;
+$default-font-color: var(--c-black);

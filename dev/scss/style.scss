@@ -1,0 +1,20 @@
+@import 'setup/setup';
+@import 'mixins/mixins';
+@import 'helpers/helpers';
+
+.col-example {
+    --bg-left: var(--c-primary);
+    --bg-right: var(--c-primary-dark);
+    @include cell-align(center center);
+
+    height: 40px;
+    opacity: .8;
+
+    &:first-child {
+        background: var(--bg-left);
+    }
+
+    &:last-child {
+        background: var(--bg-right);
+    }
+}

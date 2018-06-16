@@ -58,7 +58,9 @@ module.exports = {
     },
     alfred: {
         filesize: [
-            dest + 'scripts/main.min.js'
+            dest + 'scripts/main.min.js',
+            dest + 'styles/style.css',
+            dest + 'media/sprite.svg'
         ]
     }
 }
