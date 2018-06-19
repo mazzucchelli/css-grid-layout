@@ -10,13 +10,28 @@
     </head>
     <body>
 
-        <section class="grid">
-            <aside class="cell m3">
+        <section class="grid widget1">
+            {% for i in range(0, 24) -%}
+                <div class="block"></div>
+            {%- endfor %}
+        </section>
 
-            </aside>
-            <main class="cell m9">
-
-            </main>
+        <section class="widget">
+            <article class="grid widget1">
+                <div class="left-box">
+                    <img src="https://dummyimage.com/435x435.jpg" alt="placeholder image"/>
+                </div>
+                <div class="grid center-box">
+                    <div>
+                        <p>It’s time to take a tour of the Twinset FW17 collection, on sale right now</p>
+                        <h1>Sale Away Ladies!</h1>
+                        <a href="javascript:void(0)">go for it</a>
+                    </div>
+                </div>
+                <div class="right-box">
+                    <img src="https://dummyimage.com/245x435.jpg" alt="placeholder image"/>
+                </div>
+            </article>
         </section>
 
         <script src="scripts/vendor.min.js"></script>

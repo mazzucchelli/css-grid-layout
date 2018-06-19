@@ -22,7 +22,8 @@
     display: grid;
     padding: var(--grid-padding);
     grid-gap: var(--grid-gap);
-    grid-template-columns: repeat($colsnum, $colwidth);
+    grid-template-columns: var(--grid-template-columns);
+    grid-template-rows: var(--grid-template-rows);
     margin-bottom: var(--grid-margin-bottom);
 }
 

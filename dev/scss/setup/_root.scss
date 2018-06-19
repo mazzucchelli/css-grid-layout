@@ -54,6 +54,8 @@ $grid-config: (
     --grid-align-x: $cell-align-x,
     --grid-align-y: $cell-align-y,
     --grid-margin-bottom: $grid-margin-bottom,
+    --grid-template-columns: repeat(12, 1fr),
+    --grid-template-rows: auto,
 
     // // typography
     // --font-family-primary: unquote('Helvetica, Arial, sans-serif'),
