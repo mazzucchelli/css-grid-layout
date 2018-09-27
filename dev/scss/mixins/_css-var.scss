@@ -6,7 +6,7 @@ $css-vars: ();
 $css-vars-use-native: true !default;
 
 // enables the output of debug messages
-$css-vars-debug-log: false !default;
+$debug-log: false !default;
 
 // Assigns a variable to the global map
 @function _cssVarAssign($varName: null, $varValue: null) {
@@ -19,7 +19,7 @@ $css-vars-debug-log: false !default;
     }
 
     // assign to the global map
-    @if ($css-vars-debug-log and map-get($css-vars, $varName)) {
+    @if ($debug-log and map-get($css-vars, $varName)) {
         @debug "'#{$varName}' variable is reassigned";
     }
 
@@ -48,14 +48,14 @@ $css-vars-debug-log: false !default;
     $varName: nth($args, 1);
     $varValue: map-get($css-vars, $varName);
 
-    @if ($css-vars-debug-log or not $css-vars-use-native) {
+    @if ($debug-log or not $css-vars-use-native) {
         @if $varValue == null {
             @if length($args) == 2 {
-                @if ($css-vars-debug-log) {
+                @if ($debug-log) {
                     @debug "Provided default value is used for the variable: '#{$varName}'";
                 }
                 $varValue: nth($args, 2);
-            } @else if ($css-vars-debug-log) {
+            } @else if ($debug-log) {
                 @debug "Variable '#{$varName}' is not assigned";
                 @if not $css-vars-use-native {
                     @debug "The 'var(#{$varName}...)' usage will be skipped in the output CSS";
@@ -91,7 +91,7 @@ $css-vars-debug-log: false !default;
         @error "Map of variables is expected, instead got another type passed: #{type_of($varMap)}";
     }
 
-    @if $css-vars-debug-log or not $css-vars-use-native {
+    @if $debug-log or not $css-vars-use-native {
         // merge variables and values to the global map (provides no output)
         @each $varName, $varValue in $varMap {
             // store in global variable
@@ -123,7 +123,7 @@ $css-vars-debug-log: false !default;
         @error "Map of variables is expected, instead got another type passed: #{type_of($varMap)}";
     }
 
-    @if $css-vars-debug-log or not $css-vars-use-native {
+    @if $debug-log or not $css-vars-use-native {
         // merge variables and values to the global map (provides no output)
         @each $varName, $varValue in $varMap {
             // store in global variable

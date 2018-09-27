@@ -10,37 +10,29 @@
     }
 }
 
-@mixin __build-grid-template-col-system($num: $max-columns-allowed) {
-    @for $i from 1 through $num {
-        [data-template*="#{$i}"] {
-            --column-length: #{$i};
-        }
-    }
-}
-
-@mixin grid($colsnum: var(--column-length), $colwidth: var(--column-width)) {
+// standard 12 colomns grid
+@mixin grid($colsnum: var(--column-length), $colwidth: 1fr) {
     display: grid;
+    width: 100%;
+    max-width: var(--grid-max-width);
     padding: var(--grid-padding);
     grid-gap: var(--grid-gap);
     grid-template-columns: repeat($colsnum, $colwidth);
+    margin: 0 auto;
     margin-bottom: var(--grid-margin-bottom);
 }
 
-@mixin template() {
-    display: grid;
-    padding: var(--grid-padding);
-    grid-gap: var(--grid-gap);
-    grid-template-areas: var(--grid-template-areas);
-}
-
+// shorthand for cell-align-x + cell-align-y
 @mixin cell-align($x: var(--x-align), $y: var(--y-align)) {
     place-self: var(--x-align) var(--y-align);
 }
 
+// self align cell x axis
 @mixin cell-align-x($x: var(--x-align)) {
     justify-self: var(--x-align);
 }
 
+// self align cell y axis
 @mixin cell-align-y($y: var(--y-align)) {
     align-self: var(--y-align);
 }

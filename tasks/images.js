@@ -1,9 +1,9 @@
-const configs               = require('../gulpconfigs.js');
-const gulp                  = require('gulp');
-const $                     = require('gulp-load-plugins')();
+const configs = require('../gulpconfigs.js');
+const gulp = require('gulp');
+const $ = require('gulp-load-plugins')();
 
 var imagesMin = {
-    minifyImg: function() {
+    minifyImg: function () {
         return gulp.src(configs.paths.dev.images + '*')
             .pipe($.imagemin([
                 $.imagemin.gifsicle({interlaced: true}),
@@ -21,6 +21,6 @@ var imagesMin = {
                 // console.log();
             });
     }
-}
+};
 
 module.exports = imagesMin;

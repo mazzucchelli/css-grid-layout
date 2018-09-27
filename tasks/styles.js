@@ -1,32 +1,6 @@
-const configs               = require('../gulpconfigs.js');
-const chalk                 = require('chalk');
-const gulp                  = require('gulp');
-const gulpLoadPlugins       = require('gulp-load-plugins');
-
-const $ = gulpLoadPlugins({
-    rename: {
-        'gulp-scss-lint': 'scsslint'
-    }
-});
-
-function scssCustomReporter(file) {
-    let cleanPath = file.path.substring(file.path.indexOf(configs.paths.dev.base.substring(configs.paths.dev.base.indexOf('./') + 1)) + 1)
-    let issueLength = file.scsslint.issues.length;
-    console.logissueLength
-    if (!file.scsslint.success) {
-        // console.log(chalk.bold( '\n- ' + issueLength + ' issues found in: ' + cleanPath + '\n'));
-        // file.scsslint.issues.forEach(function(issue, index)  {
-        //     if ( issue.severity == 'error') {
-        //         console.log(chalk.red('    🔴   ' + issue.reason + ' at line: ' + issue.line + ', col: ' + issue.column));
-        //         (index == issueLength - 1) ? console.log(' ') : ''
-        //     } else if ( issue.severity == 'warning' ) {
-        //         console.log(chalk.yellow('    🔶   ' + issue.reason + ' at line: ' + issue.line + ', col: ' + issue.column));
-        //         (index == issueLength - 1) ? console.log(' ') : ''
-        //     }
-        // })
-        console.log('file.scsslint.issues', file.scsslint.issues);
-    }
-};
+const configs = require('../gulpconfigs.js');
+const gulp = require('gulp');
+const $ = require('gulp-load-plugins')();
 
 var compileStyles = {
     compileScss: function () {
@@ -46,13 +20,8 @@ var compileStyles = {
             // .pipe($.cleancss())
             // TODO: Rename style.css to style.min.css in build scripts
             .pipe($.if(toSourceMaps, $.sourcemaps.write('.')))
-            .pipe(gulp.dest(configs.paths.dest.styles))
-    },
-    beautifyScss: function () {
-        return gulp.src(configs.paths.dev.scss, {base: './'})
-        .pipe($.csscomb())
-        .pipe(gulp.dest('./'))
+            .pipe(gulp.dest(configs.paths.dest.styles));
     }
-}
+};
 
 module.exports = compileStyles;

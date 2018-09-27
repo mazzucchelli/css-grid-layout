@@ -1,15 +1,15 @@
-const configs               = require('../gulpconfigs.js');
-const buffer                = require('vinyl-buffer');
-const gulp                  = require('gulp');
-const gulpLoadPlugins       = require('gulp-load-plugins');
+const configs = require('../gulpconfigs.js');
+const buffer = require('vinyl-buffer');
+const gulp = require('gulp');
+const gulpLoadPlugins = require('gulp-load-plugins');
 
 const $ = gulpLoadPlugins({
     rename: {
-      'gulp-svg-sprite': 'svgsprite'
+        'gulp-svg-sprite': 'svgsprite'
     }
 });
 
-const example = (process.env.NODE_ENV !== 'prod') ? true : false;
+const example = (process.env.NODE_ENV !== 'prod');
 
 var compileSprite = {
     compileSvg: function () {
@@ -44,6 +44,6 @@ var compileSprite = {
             }))
             .pipe(gulp.dest(configs.paths.dev.svg));
     }
-}
+};
 
 module.exports = compileSprite;

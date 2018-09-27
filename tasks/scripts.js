@@ -1,11 +1,10 @@
-const configs               = require('../gulpconfigs.js');
-const gulp                  = require('gulp');
-const path                  = require('path');
-const UglifyJSPlugin        = require('uglifyjs-webpack-plugin');
-const $                     = require('gulp-load-plugins')();
+const configs = require('../gulpconfigs.js');
+const gulp = require('gulp');
+const path = require('path');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const $ = require('gulp-load-plugins')();
 
 let entries = {};
-let filesArray = [];
 
 if (typeof configs.webpack.entries === 'string') {
     entries[ path.basename(configs.webpack.entries).slice(0, -path.extname(configs.webpack.entries).length) ] = path.resolve(configs.webpack.entries);
@@ -25,7 +24,7 @@ var compileScripts = {
                 output: {
                     filename: '[name].min.js'
                 },
-                devtool: 'source-map',
+                devtool: devtool,
                 module: {
                     loaders: [{
                         test: /\.js$/,
@@ -36,12 +35,6 @@ var compileScripts = {
                     }]
                 },
                 plugins: [
-                    // new wp.ProvidePlugin({
-                    //     $: 'jquery',
-                    //     jQuery: 'jquery'
-                    // }),
-                    // new wp.optimize.DedupePlugin(),
-                    // new CompressionPlugin(),
                     new UglifyJSPlugin({
                         sourceMap: true
                     })
@@ -52,19 +45,7 @@ var compileScripts = {
             .on('finish', () => {
                 // console.log();
             });
-    },
-    lintJs: function() {
-        return gulp.src(configs.paths.dev.js + '**/*.js')
-            .pipe($.eslint({
-                // TODO: Explore autofix function with 'fix: true' prop or use gulp-fixmyjs
-                // fix: true,
-                // TODO: Explore eslint configuration
-                configFile: configs.paths.dev.js + '.eslintrc'
-            }))
-            // eslint.format() outputs the lint results to the console.
-            // Alternatively use eslint.formatEach() (see Docs).
-            .pipe($.eslint.format())
     }
-}
+};
 
 module.exports = compileScripts;

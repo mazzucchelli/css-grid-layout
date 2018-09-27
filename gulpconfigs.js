@@ -1,9 +1,8 @@
 const dev = './dev/';
 const app = './app/';
 const build = './build/';
-const pkg = './node_modules/';
 
-const dest = (process.env.NODE_ENV == 'prod') ? build : app;
+const dest = (process.env.NODE_ENV === 'prod') ? build : app;
 
 module.exports = {
     paths: {
@@ -20,7 +19,7 @@ module.exports = {
                 scssname: '_fonts.scss',
                 urlReplace: {
                     from: 'url("',
-                    to: 'url("fonts/',
+                    to: 'url("fonts/'
                 }
             }
         },
@@ -39,8 +38,8 @@ module.exports = {
         ]
     },
     uikit: [
-        "uikit",
-        "widgets"
+        'uikit',
+        'widgets'
     ],
     sassdoc: {
         src: './node_modules/foundation-sites/scss/**/*.scss',
@@ -63,4 +62,4 @@ module.exports = {
             dest + 'media/sprite.svg'
         ]
     }
-}
+};
