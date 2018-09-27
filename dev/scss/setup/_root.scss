@@ -24,8 +24,8 @@ $palette-config: (
 @include set-vars($palette-config);
 
 // grid
+$grid-max-width: 1080px;
 $max-columns-allowed: 12;
-$column-width: 1fr;
 $grid-gap: 10px;
 $grid-gap-x: $grid-gap;
 $grid-gap-y: $grid-gap;
@@ -41,8 +41,8 @@ $grid-config: (
     // --global-margin-bottom: 8px,
 
     //css-grid
+    --grid-max-width: $grid-max-width,
     --column-length: $max-columns-allowed,
-    --column-width: $column-width,
     --grid-gap-x: $grid-gap-x,
     --grid-gap-y: $grid-gap-y,
     --grid-gap: var(--grid-gap-x) var(--grid-gap-x),
@@ -91,3 +91,4 @@ $default-light-weight: 300;
 $default-bold-weight: 700;
 $default-line-height: 1.4;
 $default-font-color: var(--c-black);
+$default-typo-margin-bottom: 16px;

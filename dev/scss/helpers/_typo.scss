@@ -4,7 +4,7 @@ h1, h2 , h3, h4, h5, h6 {
     font-weight: 900;
     line-height: $default-line-height;
     letter-spacing: 0;
-    margin-bottom: 6px;
+    margin-bottom: $default-typo-margin-bottom;
 }
 
 h1 {
@@ -41,7 +41,7 @@ p, a, li, span, td, th {
 }
 
 p, a, span {
-    margin-bottom: 6px;
+    margin-bottom: $default-typo-margin-bottom;
 }
 
 a {
@@ -49,5 +49,5 @@ a {
 }
 
 strong, .strong, th {
-    font-weight: 700;
+    font-weight: $default-bold-weight;
 }

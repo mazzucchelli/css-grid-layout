@@ -1,6 +1,7 @@
 @import 'setup/setup';
 @import 'mixins/mixins';
 @import 'helpers/helpers';
+@import 'layout/button';
 
 .col-example {
     --bg-left: var(--c-primary);
