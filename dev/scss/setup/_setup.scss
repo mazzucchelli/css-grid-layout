@@ -44,7 +44,7 @@ $palette: (
 
 /// Grid container max width
 /// @group layout
-$global-width: rem(1280);
+$global-width: rem(1080);
 
 /// Body background
 /// @group layout
@@ -52,7 +52,7 @@ $global-body-background: map-get($palette, white);
 
 /// Primary font
 /// @group typography
-$global-font-primary: Helvetica, Arial, sans-serif;
+$global-font-primary: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
 /// Primary font color
 /// @group typography

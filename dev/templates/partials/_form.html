@@ -1,63 +1,87 @@
 <div class="grid-container">
     <h2>We bet you'll need a form somewhere:</h2>
     <form>
-        <div class="cell">
-            <label>Input Label</label>
-            <input type="text" />
-        </div>
-        <div class="cell">
-            <label>Select Box</label>
-            <select>
-                <option value="husker">Husker</option>
-                <option value="starbuck">Starbuck</option>
-                <option value="hotdog">Hot Dog</option>
-                <option value="apollo">Apollo</option>
-            </select>
-        </div>
-        <div class="cell medium-6">
-            <label for="input-id-1" class="boolean-field">
-                <input type="checkbox"
-                    required
-                    id="input-id-1"
-                    name="input-name-1"
-                    value="1">
-                <span class="checkbox-input"></span>
-                <span class="checkbox-label">Input Label</span>
-            </label>
-            <label for="input-id-2" class="boolean-field">
-                <input type="checkbox"
-                    required
-                    id="input-id-2"
-                    name="input-name-2"
-                    value="2"
-                    data-parsley-required-message="This is a custom error message!">
-                <span class="checkbox-input"></span>
-                <span class="checkbox-label">Input Label</span>
-            </label>
-        </div>
-        <div class="cell medium-6">
-            <label for="input-id-3" class="boolean-field">
-                <input type="radio"
-                    required
-                    id="input-id-3"
-                    value="3"
-                    name="input-name-3"
-                    data-parsley-required-message="This is a custom error message!">
-                <span class="radio-input"></span>
-                <span class="radio-label">Input Label</span>
-            </label>
-            <label for="input-id-4" class="boolean-field">
-                <input type="radio"
-                    id="input-id-4"
-                    name="input-name-3"
-                    value="4">
-                <span class="radio-input"></span>
-                <span class="radio-label">Input Label</span>
-            </label>
-        </div>
-        <div class="cell">
-            <label>Textarea Label</label>
-            <textarea placeholder="small-12.cell"></textarea>
+        <div class="grid">
+            <div class="cell medium-4">
+                <label>Input Label</label>
+                <input type="text" placeholder="placeholder">
+            </div>
+            <div class="cell medium-4">
+                <label>Input Label</label>
+                <input type="text">
+                <span class="help-text">This is the help text</span>
+            </div>
+            <div class="cell medium-4">
+                <label>Input Label</label>
+                <input type="text" disabled>
+            </div>
+            <div class="cell medium-4">
+                <label>Input Label</label>
+                <input type="text" placeholder="placeholder">
+            </div>
+            <div class="cell medium-4">
+                <label>Select Box</label>
+                <select>
+                    <option value="husker">Husker</option>
+                    <option value="starbuck">Starbuck</option>
+                    <option value="hotdog">Hot Dog</option>
+                    <option value="apollo">Apollo</option>
+                </select>
+            </div>
+            <div class="cell medium-4">
+                <label>Select Box</label>
+                <select disabled>
+                    <option value="husker">Husker</option>
+                    <option value="starbuck">Starbuck</option>
+                    <option value="hotdog">Hot Dog</option>
+                    <option value="apollo">Apollo</option>
+                </select>
+            </div>
+            <div class="cell medium-6">
+                <label for="input-id-1" class="boolean-field">
+                    <input type="checkbox"
+                        required
+                        id="input-id-1"
+                        name="input-name-1"
+                        value="1">
+                    <span class="checkbox-input"></span>
+                    <span class="checkbox-label">Input Label</span>
+                </label>
+                <label for="input-id-2" class="boolean-field">
+                    <input type="checkbox"
+                        required
+                        id="input-id-2"
+                        name="input-name-2"
+                        value="2"
+                        data-parsley-required-message="This is a custom error message!">
+                    <span class="checkbox-input"></span>
+                    <span class="checkbox-label">Input Label</span>
+                </label>
+            </div>
+            <div class="cell medium-6">
+                <label for="input-id-3" class="boolean-field">
+                    <input type="radio"
+                        required
+                        id="input-id-3"
+                        value="3"
+                        name="input-name-3"
+                        data-parsley-required-message="This is a custom error message!">
+                    <span class="radio-input"></span>
+                    <span class="radio-label">Input Label</span>
+                </label>
+                <label for="input-id-4" class="boolean-field">
+                    <input type="radio"
+                        id="input-id-4"
+                        name="input-name-3"
+                        value="4">
+                    <span class="radio-input"></span>
+                    <span class="radio-label">Input Label</span>
+                </label>
+            </div>
+            <div class="cell">
+                <label>Textarea Label</label>
+                <textarea placeholder="placeholder"></textarea>
+            </div>
         </div>
     </form>
 </div>
