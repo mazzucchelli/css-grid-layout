@@ -12,31 +12,17 @@ module.exports = {
             js: dev + 'js/',
             scss: dev + 'scss/*.scss',
             images: dev + 'images/',
-            svg: dev + 'svg/',
-            fonts: {
-                filesource: dev + 'fonts/',
-                tempdest: './fontdest/',
-                scssdest: dev + 'scss/configs/',
-                scssname: '_fonts.scss',
-                urlReplace: {
-                    from: 'url("',
-                    to: 'url("fonts/'
-                }
-            }
+            svg: dev + 'svg/'
         },
         dest: {
             base: dest,
             temp: dev + 'temp/',
-            scripts: dest + 'scripts/',
-            styles: dest + 'styles/',
-            media: dest + 'media/',
-            uikit: dest + 'uikit/',
-            fonts: dest + 'styles/fonts/'
+            scripts: dest + 'js/',
+            styles: dest + 'css/',
+            media: dest + 'assets/'
         },
         vendors: [
-            // pkg + 'jquery/dist/jquery.min.js',
-            // pkg + 'foundation-sites/dist/js/foundation.min.js',
-            // pkg + 'what-input/dist/what-input.min.js'
+            // './node_modules/what-input/dist/what-input.min.js'
         ]
     },
     sassdoc: {
