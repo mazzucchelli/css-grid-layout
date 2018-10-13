@@ -1,0 +1,100 @@
+/// Create columns responsive classes
+///
+/// @param {Number} $num [$grid-cols-length] - Max columns allowed (usually 12)
+@mixin responsive-grid-columns($num: $grid-cols-length) {
+    .cell {
+        grid-column-end: span #{$grid-cols-length};
+    }
+    // for every breakpoint choosen
+    @each $k, $v in $breakpoints {
+        // no media query for min viewport
+        @if $v == 0 {
+            @for $i from 1 through $num {
+                // small-1, small-2, ...
+                .#{$k}-#{$i} {
+                    grid-column-end: span #{$i};
+                }
+            }
+        } @else {
+            @include breakpoint(#{$k}) {
+                @for $i from 1 through $num {
+                    .#{$k}-#{$i} {
+                        grid-column-end: span #{$i};
+                    }
+                }
+            }
+        }
+    }
+}
+
+/// Standard mixin for display: grid;
+///
+/// @param {Number} $colsnum [$grid-cols-length] - Max columns allowed (usually 12)
+/// @param {Number} $colwidth [1fr] - Columns width
+/// @param {String} css-var - --grid-max-width, --grid-gap, --grid-padding-[cord], --grid-padding, --grid-margin-bottom
+@mixin make-grid($colsnum: $grid-cols-length, $colwidth: 1fr) {
+    display: grid;
+    width: 100%;
+    padding: var(--grid-padding);
+    grid-gap: var(--grid-gap);
+    grid-template-columns: repeat($colsnum, $colwidth);
+    margin: 0 auto;
+    margin-bottom: var(--grid-margin-bottom);
+}
+
+@mixin grid-align() {
+    place-self: var(--grid-align-x) var(--grid-align-y);
+}
+
+// shorthand for cell-align-x + cell-align-y
+// @mixin flex-align($x: var(--x-align), $y: var(--y-align)) {
+//     place-self: var(--x-align) var(--y-align);
+// }
+
+/// Helper classes for visibility 
+@mixin show-hide-up($breakpoints) {
+    @for $i from 2 through length($breakpoints) {
+        $name: -get-value($breakpoints, $i, 'key');
+
+        @include breakpoint($name) {
+            .show-for-#{$name} {
+                display: block !important;
+            }
+            .hide-for-#{$name} {
+                display: none !important;
+            }
+        }
+    }
+}
+
+/// Helper classes for visibility
+@mixin show-hide-down($breakpoints) {
+    @for $i from 2 through (length($breakpoints) - 1) {
+        $name: -get-value($breakpoints, $i, 'key');
+
+        @include breakpoint($name down) {
+            .show-for-#{$name}-down {
+                display: block !important;
+            }
+            .hide-for-#{$name}-down {
+                display: none !important;
+            }
+        }
+    }
+}
+
+/// Helper classes for visibility
+@mixin show-hide-only($breakpoints) {
+    @for $i from 1 through (length($breakpoints) - 1) {
+        $name: -get-value($breakpoints, $i, 'key');
+
+        @include breakpoint($name only) {
+            .show-for-#{$name}-only {
+                display: block !important;
+            }
+            .hide-for-#{$name}-only {
+                display: none !important;
+            }
+        }
+    }
+}

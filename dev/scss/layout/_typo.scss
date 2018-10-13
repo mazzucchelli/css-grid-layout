@@ -1,0 +1,26 @@
+// headings
+@mixin headings($map) {
+    @each $k, $v in $map {
+        @if $k == small {
+            @each $tag, $size in $v {
+                #{$tag}, .#{$tag} {
+                    font-size: rem($size);
+                    line-height: 1.4; // TODO: param
+                    margin-bottom: .5rem; // TODO: param
+                }
+            }
+        } @else {
+            @include breakpoint(#{k}) {
+                @each $tag, $size in $v {
+                    #{$tag}, .#{$tag} {
+                        font-size: rem($size);
+                        line-height: 1.4; // TODO: param
+                        margin-bottom: .5rem; // TODO: param
+                    }
+                }
+            }
+        }
+    }
+}
+
+@include headings($heading-sizes);

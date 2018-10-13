@@ -1,0 +1,106 @@
+/// Check the breakpoint direction
+/// @example
+///   up - down - only
+///
+/// @param {String} $string
+///
+/// @returns {Boolean}
+/// @access private
+@function -check-way ($string) {
+    @if type-of($string) == 'string' {
+        @if $string == 'up' or $string == 'down' or $string == 'only' {
+            @return 'true';
+        } @else {
+            @return 'false';
+        }
+    }
+}
+
+/// Get a media query based on stored breakpoints
+/// @todo dynamic target
+///
+/// @param {String} $viewport - Breakpoint name
+/// @param {String} $way - Direction to take
+/// @param {String} $target ['screen'] - Media target e.g. 'screen and print'
+///
+/// @returns {String} The requested media query with `em` units`
+/// @access private
+@function -build-media-query ($viewport, $way, $target: 'screen') {
+    $res: 'false';
+    @if $way == 'up' {
+        $minsize: em(map-get($breakpoints, $viewport));
+        $res: '#{$target} and (min-width: #{$minsize})';
+    } @else if $way == 'down' {
+        $i: -get-index($breakpoints, $viewport, 'key');
+        $maxsize: em(-get-value($breakpoints, $i + 1) - 1px);
+        $res: '#{$target} and (max-width: #{$maxsize})';
+    } @else {
+        $i: -get-index($breakpoints, $viewport, 'key');
+        $minsize: em(map-get($breakpoints, $viewport));
+        $maxsize: em(map-get($breakpoints, -get-value($breakpoints, $i + 1, 'key')) - 1px);
+        $res: '#{$target} and (min-width: #{$minsize}) and (max-width: #{$maxsize})';
+    }
+    @return $res;
+}
+
+/// Get a media query based on custom breakpoint values
+/// @todo dynamic target
+///
+/// @param {Number || String} $minsize - Self explanatory
+/// @param {Number || String} $maxsize - Self explanatory
+/// @param {String} $target ['screen'] - Media target e.g. 'screen and print'
+///
+/// @returns {String} - The requested media query with `em` units`
+@function -build-custom-media-query ($minsize, $maxsize, $target: 'screen') {
+    $res: '#{$target} and (min-width: #{em($minsize)}) and (max-width: #{em($maxsize)})';
+    @return $res;
+}
+
+/// Create media query
+/// @example @include breakpoint(small) { ... }
+/// @example @include breakpoint(medium only) { ... }
+/// @example @include breakpoint(large down) { ... }
+/// @example @include breakpoint((custom, 200, 600)) { ... }
+@mixin breakpoint($attrs) {
+    $mq: 'false';
+
+    // if string, just the breakpoint 
+    @if type-of($attrs) == 'string' {
+        // if breakpoint exists
+        @if map-has-key($breakpoints, $attrs) {
+            // mobile first, hardcoded 'up'
+            $mq: -build-media-query($attrs, 'up');
+        }
+    } 
+    // if list, breakpoint + direction + target
+    @else if type-of($attrs) == 'list' {
+        // get breakpoint
+        $viewport: -get-value($attrs, 1);
+
+        // if breakpoint exists
+        @if map-has-key($breakpoints, $viewport) {
+            // get direction
+            $way: -get-value($attrs, 2);
+            // if direction exists
+            @if -check-way($way) {
+                $mq: -build-media-query($viewport, $way);
+            }
+        } 
+        // if $viewport == 'custom' trigger custom media query
+        @else if $viewport == 'custom' {
+            $minsize: -get-value($attrs, 2);
+            $maxsize: -get-value($attrs, 3);
+            $mq: -build-custom-media-query($minsize, $maxsize);
+        }
+    }
+
+    @if $mq != 'false' {
+        @media #{$mq} {
+            @content;
+        }
+    } @else {
+        @if $debug-log {
+            @warn 'Something went wrong with media query `#{$attrs}`';
+        }
+    }
+}

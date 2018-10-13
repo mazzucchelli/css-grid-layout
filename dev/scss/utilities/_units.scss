@@ -1,0 +1,75 @@
+/// Default value, don't touch
+/// @type Number
+$browser-context: 16px !default;
+
+/// Remove unit from value
+///
+/// @param {Number} $num - Self explanatory
+///
+/// @returns {Number} - Unitless value
+/// @access private
+@function strip-unit($num) {
+    @return $num / ($num * 0 + 1);
+}
+
+/// Convert single value to `rem` unit
+///
+/// @param {Number} $values - Value in `px`
+/// @param {Number} $base-value [$browser-context] - Default value used for calc
+///
+/// @returns {Number} - Converted value in `rem`
+/// @access private
+@function rem-converter($value, $base-value: $browser-context)  {
+    $value: strip-unit($value) / strip-unit($base-value) * 1rem; // Calc
+    @if ($value == 0rem) { $value: 0; } // Turn 0rem into 0
+    @return $value;
+}
+
+/// Convert multiple values to `rem` unit
+///
+/// @param {Number} $values - Value in `px`
+/// @param {Number} $base-value [$browser-context] - Default value used for calc
+///
+/// @returns {Number} - Converted value/values in `rem`
+/// @access public
+@function rem($values, $base-value: $browser-context) {
+    // if single value
+    $max: length($values);
+    @if $max == 1 { @return rem-converter(nth($values, 1), $base-value); }
+    // if multiple values
+    $remValues: ();
+    @for $i from 1 through $max {
+        $remValues: append($remValues, rem-converter(nth($values, $i), $base-value));
+    }
+    @return $remValues;
+}
+
+/// Convert single value to `em` unit
+///
+/// @param {Number} $values - Value in `px`
+/// @param {Number} $base-value [$browser-context] - Default value used for calc
+///
+/// @returns {Number} - Converted value in `em`
+/// @access private
+@function em-converter($value, $base-value: $browser-context)  {
+    $value: strip-unit($value) / strip-unit($base-value) * 1em; // Calc
+    @if ($value == 0em) { $value: 0; } // Turn 0em into 0
+    @return $value;
+}
+
+/// Convert multiple values to `em` unit
+///
+/// @param {Number} $values - Value in `px`
+/// @param {Number} $base-value [$browser-context] - Default value used for calc
+///
+/// @returns {Number} - Converted value/values in `em`
+/// @access public
+@function em($values, $base-value: $browser-context) {
+    $max: length($values);
+    @if $max == 1 { @return em-converter(nth($values, 1), $base-value); }
+    $emValues: ();
+    @for $i from 1 through $max {
+        $emValues: append($emValues, em-converter(nth($values, $i), $base-value));
+    }
+    @return $emValues;
+}

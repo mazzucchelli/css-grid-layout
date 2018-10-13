@@ -1,0 +1,12 @@
+button,
+.button {
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-size: 12px;
+    padding: 15px 30px;
+    background: var(--c-black);
+    text-decoration: none;
+    color: var(--c-white);
+    display: inline-block;
+    cursor: pointer;
+}

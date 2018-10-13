@@ -1,0 +1,53 @@
+// Generate colors custom properties from $map: 
+// Usage: $palette.black --> var(--c-black)
+@include add-properties($palette);
+
+:root {
+    --body-background: var(--c-white);
+    
+    --default-margin: #{$global-margin};
+
+    --font-family: #{$global-font-primary};
+    --font-color: #{$global-font-color};
+    --font-weight: #{$global-font-weight-normal};
+    --font-size: #{$global-font-size};
+    --font-lineheight: #{$global-font-lineheight};
+    --font-letterspacing: #{$global-font-letterspacing};
+    
+    --anchor-color: #{$anchor-color};
+    --anchor-weight: #{$anchor-text-weight};
+    --anchor-text-decoration: #{$anchor-text-decoration};
+
+    --button-cursor: #{$button-cursor};
+    
+    --animation-timing: #{$global-animation-timing};
+    --animation-duration: #{$global-animation-duration};
+    
+    --outline-color: #{$global-outline-color};
+
+    --grid-width: #{$grid-container};
+    --grid-cols-length: #{$grid-cols-length};
+    --grid-gap-x: #{map-get($grid-gap, xsmall)};
+    --grid-gap-y: #{map-get($grid-gap, xsmall)};
+    --grid-gap: var(--grid-gap-x) var(--grid-gap-y);
+    --grid-padding-top: 0;
+    --grid-padding-right: 0;
+    --grid-padding-bottom: 0;
+    --grid-padding-left: 0;
+    --grid-padding: var(--grid-padding-top) var(--grid-padding-right) var(--grid-padding-bottom) var(--grid-padding-left);
+    --grid-margin-top: #{map-get($grid-gap, xsmall)};
+    --grid-margin-right: #{map-get($grid-gap, xsmall)};
+    --grid-margin-bottom: #{map-get($grid-gap, xsmall)};
+    --grid-margin-left: #{map-get($grid-gap, xsmall)};
+    --grid-margin: var(--grid-margin-top) var(--grid-margin-right) var(--grid-margin-bottom) var(--grid-margin-left);
+    --grid-align-x: #{$grid-align-x};
+    --grid-align-y: #{$grid-align-y};
+
+    --input-color: #{$input-color};
+    --input-placeholder-color: #{$input-placeholder-color};
+    --input-background: #{$input-background};
+    --input-background-focus: #{$input-background-focus};
+    --input-border: #{$input-border};
+
+    --icon-size: #{map-get($icons-size, default)};
+}

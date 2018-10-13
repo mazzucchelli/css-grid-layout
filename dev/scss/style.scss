@@ -1,21 +1,24 @@
+/// Enables the output of debug messages
+/// @type Boolean 
+$debug-log: false !default;
+
+@import 'utilities/utilities';
 @import 'setup/setup';
 @import 'mixins/mixins';
-@import 'helpers/helpers';
-@import 'layout/button';
 
-.col-example {
-    --bg-left: var(--c-primary);
-    --bg-right: var(--c-primary-dark);
-    @include cell-align(center center);
+@include responsive-grid-columns();
 
-    height: 40px;
-    opacity: .8;
+.grid-container {
+    max-width: var(--grid-width);
+    margin: 0 auto;
 
-    &:first-child {
-        background: var(--bg-left);
-    }
-
-    &:last-child {
-        background: var(--bg-right);
+    &.expanded {
+        max-width: 100%;
     }
 }
+
+.grid {
+    @include make-grid();
+}
+
+@import 'layout/layout';

@@ -8,6 +8,7 @@ module.exports = {
     paths: {
         dev: {
             base: dev,
+            temp: dev + 'temp/*.css',
             js: dev + 'js/',
             scss: dev + 'scss/*.scss',
             images: dev + 'images/',
@@ -25,6 +26,7 @@ module.exports = {
         },
         dest: {
             base: dest,
+            temp: dev + 'temp/',
             scripts: dest + 'scripts/',
             styles: dest + 'styles/',
             media: dest + 'media/',
@@ -37,29 +39,13 @@ module.exports = {
             // pkg + 'what-input/dist/what-input.min.js'
         ]
     },
-    uikit: [
-        'uikit',
-        'widgets'
-    ],
     sassdoc: {
-        src: './node_modules/foundation-sites/scss/**/*.scss',
+        src: dev + 'scss/**/*.scss',
         dest: './docs/styles/'
     },
-    todowatch: [
-        dev + '*.{html|njk}',
-        dev + 'js/**/*.js',
-        dev + 'scss/**/*.scss'
-    ],
     webpack: {
         entries: [
             dev + 'js/main.js'
-        ]
-    },
-    alfred: {
-        filesize: [
-            dest + 'scripts/main.min.js',
-            dest + 'styles/style.css',
-            dest + 'media/sprite.svg'
         ]
     }
 };
