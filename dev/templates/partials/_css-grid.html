@@ -1,10 +1,3 @@
-<style>
-    .col-example {
-        background: #C9DDFF;
-        border: 1px solid #2C2C54;
-    }
-</style>
-
 <div class="grid-container">
     <div class="grid">
         <div class="cell">
@@ -15,8 +8,8 @@
     <!-- Grid Example -->
     {% for i in range(1, 12) -%}
         <div class="grid">
-            <div class="col-example cell large-{{i}} medium-{{12 - i}}">.cell</div>
-            <div class="col-example cell large-{{12 - i}} medium-{{i}}">.cell</div>
+            <div class="col-example cell large-{{i}} medium-{{12 - i}}">{{ i }}</div>
+            <div class="col-example cell large-{{12 - i}} medium-{{i}}">{{ 12 - i }}</div>
         </div>
     {%- endfor %}
 </div>
