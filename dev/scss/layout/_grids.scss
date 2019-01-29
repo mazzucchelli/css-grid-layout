@@ -1,13 +1,40 @@
+@mixin add-margin-props { 
+    margin: var(--m-top) var(--m-right) var(--m-bottom) var(--m-left);
+}
+
+@mixin add-margin-props-x { 
+    margin-top: var(--m-top);
+    margin-bottom: var(--m-bottom);
+}
+
+@mixin add-margin-props-y { 
+    margin-right: var(--m-right);
+    margin-left: var(--m-left);
+}
+
+@mixin add-padding { 
+    padding: var(--p-top) var(--p-right) var(--p-bottom) var(--p-left);
+}
+
+@mixin add-padding-x { 
+    padding-top: var(--p-top);
+    padding-bottom: var(--p-bottom);
+}
+
+@mixin add-padding-y { 
+    padding-right: var(--p-right);
+    padding-left: var(--p-left);
+}
+
 // flexbox container
 @mixin make-flex-container {
     display: flex;
-    flex-wrap: var(--flex-wrap);
     flex-direction: var(--flex-direction);
+    flex-wrap: var(--flex-wrap);
     justify-content: var(--flex-justify);
     align-items: var(--flex-align);
-    // flex-grow: var(--flex-grow);
-    margin: var(--m-top) var(--m-right) var(--m-bottom) var(--m-left);
-    padding: var(--p-top) var(--p-right) var(--p-bottom) var(--p-left);
+    @include add-margin-props;
+    @include add-padding;
 }
 
 @mixin flex-container-helpers {
@@ -46,9 +73,9 @@
     .flex-y {
         --flex-direction: column;
 
-        .box {
-            width: 100%;
-        }
+        // .box {
+        //     width: 100%;
+        // }
     }
 }
 
@@ -57,10 +84,12 @@
     --flex-direction: row;
     --flex-justify: flex-start;
     --flex-align: stretch;
+    
     --m-top: 0;
     --m-right: 0;
     --m-bottom: 0;
     --m-left: 0;
+    
     --p-top: 0;
     --p-right: 0;
     --p-bottom: 0;
@@ -74,8 +103,8 @@
 // flexbox item
 @mixin make-flex-item {
     flex: var(--box-shrink) var(--box-grow) var(--box-basis);
-    margin: var(--m-top) var(--m-right) var(--m-bottom) var(--m-left);
-    padding: var(--p-top) var(--p-right) var(--p-bottom) var(--p-left);
+    @include add-margin-props;
+    @include add-padding;
 }
 
 @mixin flex-item-helpers {

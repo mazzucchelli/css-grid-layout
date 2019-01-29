@@ -2,23 +2,23 @@
 
 {% block main %}
 
-<div class="hero slant-down search-banner" style="background-image: url(https://alpenite01.alliance-prtnr-eu01.dw.demandware.net/on/demandware.static/-/Sites-storefront-catalog-m-en/default/dwaa801596/images/slot/sub_banners/cat-banner-mens-ties.jpg)">
-    <h1 class="header page-title">
-        Ties
-    </h1>
+<div class="search-banner hero-banner">
+    <div class="grid-container">
+        <h1 class="header page-title">
+            Ties
+        </h1>
+    </div>
 </div>
-<div class="container search-results">
-    <div class="row search-nav"></div>
-    <div class="row">
-        <div class="tab-content col-12">
-            <div class="tab-pane container active" id="product-search-results" role="tabpanel" aria-expanded="true">
-                <div class="row grid-header">
-                    <div class="result-count text-center col-12 col-md-9 col-sm-6 order-sm-2">
-                        <span>
-                        4 Results
-                        </span>
+<div class="grid-container">
+    <div class="grid search-nav"></div>
+    <div class="grid">
+        <div class="cell">
+            <div class="">
+                <div class="grid">
+                    <div class="cell">
+                        <span>4 Results</span>
                     </div>
-                    <div class="col-6 col-sm-3 order-sm-1">
+                    <div class="cell medium-6">
                         <select name="sort-order" class="custom-select">
                             <option class="best-matches" value="" data-id="best-matches" selected>Best Matches</option>
                             <option class="price-low-to-high" value="" data-id="price-low-to-high">Price Low To High</option>
@@ -30,48 +30,42 @@
                             <option class="top-sellers" value="" data-id="top-sellers">Top Sellers</option>
                         </select>
                     </div>
-                    <div class="col-6 col-sm-3 text-right d-md-none order-sm-3">
-                        <button type="button" class="btn btn-primary filter-results col-12">
-                            Filter
-                        </button>
+                    <div class="cell medium-6 text-right">
+                        <button type="button" class="btn">Filter</button>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="refinement-bar col-md-3">
+                <div class="grid">
+                    <div class="refinement-bar cell medium-3">
                         <div class="filter-header">
-                            <div class="header-bar d-md-none clearfix">
-                                <div class="pull-left d-md-none result-count">
-                                    <span>4 Results</span>
-                                </div>
+                            <div class="header-bar">
+                                <span>4 Results</span>
                                 <button class="pull-right close">
                                     <span>Close</span>
                                 </button>
                             </div>
                         </div>
                         <div>
-                            <div class="secondary-bar col-12 offset-sm-4 offset-md-0 col-sm-4 col-md-12">
-                                <a class="reset btn btn-block btn-outline-primary" href="/s/RefArch/mens/accessories/ties/?lang=en_US">
-                                    Reset
-                                </a>
+                            <div class="secondary-bar">
+                                <a class="reset btn" href="#">Reset</a>
                             </div>
                         </div>
                         <div>
                             <div class="refinements">
-                                <div class="card collapsible-sm refinement refinement-category">
+                                <div class="refinement refinement-category">
                                     <div class="card-header">
                                         Category
                                     </div>
                                     <div class="card-body">
                                         <ul class="values content">
                                             <li>
-                                                <a href="/s/RefArch/mens/accessories/?lang=en_US">
+                                                <a href="#">
                                                     <span title="Refine by Category: Accessories" class="">
                                                         Accessories
                                                     </span>
                                                 </a>
                                                 <ul class="values content">
                                                     <li>
-                                                        <a href="/s/RefArch/mens/accessories/?lang=en_US">
+                                                        <a href="#">
                                                             <span title="Currently Refined by Category: Ties" class="selected">Ties</span>
                                                         </a>
                                                     </li>
@@ -80,7 +74,7 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <div class="card collapsible-sm refinement refinement-color">
+                                <div class="refinement refinement-color">
                                     <div class="card-header">
                                         Color
                                     </div>
@@ -176,95 +170,77 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-12 col-md-9">
-                        <div class="container">
-                            <div class="row filter-bar d-md-none">
-                                <ul>
-                                </ul>
-                            </div>
-                            <div class="row product-grid" itemtype="http://schema.org/SomeProducts" itemid="#product">
-                                <div class="col-6 col-sm-4">
-                                    <div data-pid="25752218M">
-                                        <div class="product-tile" itemscope itemtype="http://schema.org/Product">
-                                            <div class="image-container">
-                                                <a href="/s/RefArch/solid-silk-tie/25752218M.html?lang=en_US">
-                                                <img class="tile-image"
-                                                    src="https://alpenite01.alliance-prtnr-eu01.dw.demandware.net/on/demandware.static/-/Sites-apparel-m-catalog/default/dw20f82913/images/medium/PG.949432114S.NAVYSI.PZ.jpg"
-                                                    alt="Solid Silk Tie"
-                                                    title="Solid Silk Tie, "
-                                                    itemprop="image"/>
-                                                </a>
-                                                <a class="quickview hidden-sm-down" href="/on/demandware.store/Sites-RefArch-Site/en_US/Product-ShowQuickView?pid=25752218M" title="QuickView">
-                                                    <span class="fa-stack fa-lg">
-                                                    </span>
-                                                </a>
+                    <div class="products-wrap cell medium-9">
+                        <div class="products grid" itemtype="http://schema.org/SomeProducts" itemid="#product">
+                            <div class="cell medium-4">
+                                <div data-pid="25752218M">
+                                    <div class="product-tile" itemscope itemtype="http://schema.org/Product">
+                                        <div class="image-container">
+                                            <a href="/s/RefArch/solid-silk-tie/25752218M.html?lang=en_US">
+                                            <img class="tile-image"
+                                                src="https://alpenite01.alliance-prtnr-eu01.dw.demandware.net/on/demandware.static/-/Sites-apparel-m-catalog/default/dw20f82913/images/medium/PG.949432114S.NAVYSI.PZ.jpg"
+                                                alt="Solid Silk Tie"
+                                                title="Solid Silk Tie, "
+                                                itemprop="image"/>
+                                            </a>
+                                            <a class="quickview hidden-sm-down" href="/on/demandware.store/Sites-RefArch-Site/en_US/Product-ShowQuickView?pid=25752218M" title="QuickView">
+                                                quickview
+                                            </a>
+                                        </div>
+                                        <div class="tile-body">
+                                            <div class="color-swatches">
+                                                <div class="swatches">
+                                                    <a href="#">
+                                                        <span>
+                                                            <img class="swatch swatch-circle"
+                                                                data-index="0.0"
+                                                                style="background-image: url(https://alpenite01.alliance-prtnr-eu01.dw.demandware.net/on/demandware.static/-/Sites-apparel-m-catalog/default/dwf00966a4/images/swatch/PG.949432114S.NAVYSI.CP.jpg)"
+                                                                src="https://alpenite01.alliance-prtnr-eu01.dw.demandware.net/on/demandware.static/-/Sites-apparel-m-catalog/default/dwf00966a4/images/swatch/PG.949432114S.NAVYSI.CP.jpg"
+                                                                alt="Solid Silk Tie, Navy, swatch"/>
+                                                        </span>
+                                                    </a>
+                                                    <a href="#">
+                                                        <span>
+                                                            <img class="swatch swatch-circle"
+                                                                data-index="1.0"
+                                                                style="background-image: url(https://alpenite01.alliance-prtnr-eu01.dw.demandware.net/on/demandware.static/-/Sites-apparel-m-catalog/default/dw4a00c7ec/images/swatch/PG.949432114S.REDSI.CP.jpg)"
+                                                                src="https://alpenite01.alliance-prtnr-eu01.dw.demandware.net/on/demandware.static/-/Sites-apparel-m-catalog/default/dw4a00c7ec/images/swatch/PG.949432114S.REDSI.CP.jpg"
+                                                                alt="Solid Silk Tie, Red, swatch"/>
+                                                        </span>
+                                                    </a>
+                                                    <a href="#">
+                                                        <span>
+                                                            <img class="swatch swatch-circle"
+                                                                data-index="2.0"
+                                                                style="background-image: url(https://alpenite01.alliance-prtnr-eu01.dw.demandware.net/on/demandware.static/-/Sites-apparel-m-catalog/default/dwdd48c70b/images/swatch/PG.949432114S.YELLOSI.CP.jpg)"
+                                                                src="https://alpenite01.alliance-prtnr-eu01.dw.demandware.net/on/demandware.static/-/Sites-apparel-m-catalog/default/dwdd48c70b/images/swatch/PG.949432114S.YELLOSI.CP.jpg"
+                                                                alt="Solid Silk Tie, Yellow, swatch"/>
+                                                        </span>
+                                                    </a>
+                                                </div>
                                             </div>
-                                            <div class="tile-body">
-                                                <div class="color-swatches">
-                                                    <div class="swatches">
-                                                        <a href="/s/RefArch/solid-silk-tie/25752218M.html?dwvar_25752218M_color=NAVYSI&amp;lang=en_US">
-                                                        <span>
-                                                        <img class="swatch swatch-circle"
-                                                            data-index="0.0"
-                                                            style="background-image: url(https://alpenite01.alliance-prtnr-eu01.dw.demandware.net/on/demandware.static/-/Sites-apparel-m-catalog/default/dwf00966a4/images/swatch/PG.949432114S.NAVYSI.CP.jpg)"
-                                                            src="https://alpenite01.alliance-prtnr-eu01.dw.demandware.net/on/demandware.static/-/Sites-apparel-m-catalog/default/dwf00966a4/images/swatch/PG.949432114S.NAVYSI.CP.jpg"
-                                                            alt="Solid Silk Tie, Navy, swatch"/>
-                                                        </span>
-                                                        </a>
-                                                        <a href="/s/RefArch/solid-silk-tie/25752218M.html?dwvar_25752218M_color=REDSI&amp;lang=en_US">
-                                                        <span>
-                                                        <img class="swatch swatch-circle"
-                                                            data-index="1.0"
-                                                            style="background-image: url(https://alpenite01.alliance-prtnr-eu01.dw.demandware.net/on/demandware.static/-/Sites-apparel-m-catalog/default/dw4a00c7ec/images/swatch/PG.949432114S.REDSI.CP.jpg)"
-                                                            src="https://alpenite01.alliance-prtnr-eu01.dw.demandware.net/on/demandware.static/-/Sites-apparel-m-catalog/default/dw4a00c7ec/images/swatch/PG.949432114S.REDSI.CP.jpg"
-                                                            alt="Solid Silk Tie, Red, swatch"/>
-                                                        </span>
-                                                        </a>
-                                                        <a href="/s/RefArch/solid-silk-tie/25752218M.html?dwvar_25752218M_color=YELLOSI&amp;lang=en_US">
-                                                        <span>
-                                                        <img class="swatch swatch-circle"
-                                                            data-index="2.0"
-                                                            style="background-image: url(https://alpenite01.alliance-prtnr-eu01.dw.demandware.net/on/demandware.static/-/Sites-apparel-m-catalog/default/dwdd48c70b/images/swatch/PG.949432114S.YELLOSI.CP.jpg)"
-                                                            src="https://alpenite01.alliance-prtnr-eu01.dw.demandware.net/on/demandware.static/-/Sites-apparel-m-catalog/default/dwdd48c70b/images/swatch/PG.949432114S.YELLOSI.CP.jpg"
-                                                            alt="Solid Silk Tie, Yellow, swatch"/>
-                                                        </span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="pdp-link" itemprop="name">
-                                                    <a class="link" href="/s/RefArch/solid-silk-tie/25752218M.html?lang=en_US" itemprop="url">Solid Silk Tie</a>
-                                                </div>
-                                                <div class="price"  itemprop="offers" itemscope itemtype="http://schema.org/Offer">
-                                                    <span>
-                                                        <meta itemprop="priceCurrency" content="USD" />
-                                                        <span class="strike-through list">
-                                                            <span class="value" itemprop="price" content="39.50">
-                                                                $39.50
-                                                            </span>
-                                                        </span>
-                                                        <meta itemprop="priceCurrency" content="USD" />
-                                                        <span class="sales">
-                                                            <span class="value" itemprop="price" content="29.99">
-                                                                $29.99
-                                                            </span>
-                                                        </span>
+                                            <div class="pdp-link" itemprop="name">
+                                                <a class="link" href="#" itemprop="url">Solid Silk Tie</a>
+                                            </div>
+                                            <div class="price"  itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                                                <span>
+                                                    <meta itemprop="priceCurrency" content="USD" />
+                                                    <span class="strike-through list">
+                                                        <span class="value" itemprop="price" content="39.50">$39.50</span>
                                                     </span>
-                                                </div>
-                                                <div class="row tile-body-footer"></div>
+                                                    <meta itemprop="priceCurrency" content="USD" />
+                                                    <span class="sales">
+                                                        <span class="value" itemprop="price" content="29.99">$29.99</span>
+                                                    </span>
+                                                </span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-12 grid-footer">
-                                    <div class="show-more">
-                                        <div class="text-center">
-                                            <button class="btn btn-outline-primary col-12 col-sm-4" data-url="https://alpenite01.alliance-prtnr-eu01.dw.demandware.net/on/demandware.store/Sites-RefArch-Site/en_US/Search-UpdateGrid?cgid=electronics-digital-media-players&amp;start=12&amp;sz=12">
-                                                More
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
+                        </div>
+                        <div class="show-more text-center">
+                            <button class="btn">More</button>
                         </div>
                     </div>
                 </div>

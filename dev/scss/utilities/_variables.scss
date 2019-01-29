@@ -1,4 +1,5 @@
 /// Add custom properties to :root from map
+/// @todo prefix
 ///
 /// @param {Map} $map - Map to elaborate
 @mixin add-properties($map) {

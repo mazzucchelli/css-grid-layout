@@ -1,7 +1,7 @@
 // Colors
 // Global
 // Breakpoints
-// CSS-grid Layout 
+// CSS-grid Layout
 // Flexbox Layout
 // Headings
 // Paragraphs
@@ -19,7 +19,7 @@
 // Icons
 // Separator
 
-/* 
+/*
 ** 00. Colors
 */
 
@@ -38,7 +38,7 @@ $palette: (
     white: #ffffff
 );
 
-/* 
+/*
 ** 00. Global
 */
 
@@ -80,7 +80,7 @@ $global-font-lineheight: 1.4;
 
 /// Default font letter spacing
 /// @group typography
-$global-font-letterspacing: .14em;
+$global-font-letterspacing: .06em;
 
 /// Default animation timing
 /// @group layout
@@ -98,7 +98,7 @@ $global-outline-color: map-get($palette, primary);
 /// @group layout
 $global-margin: 8px;
 
-/* 
+/*
 ** 00. Breakpoints
 */
 
@@ -112,13 +112,9 @@ $breakpoints: (
     xlarge: 1280px
 );
 
-/* 
-** 00. CSS-grid Layout 
+/*
+** 00. CSS-grid Layout
 */
-
-/// TODO: Enable css-grid helpers
-/// @group layout
-$enable-grid: true;
 
 /// Set grid max width
 /// @group layout
@@ -134,7 +130,7 @@ $grid-align-x: start;
 
 /// Set vertical align
 /// @group layout
-$grid-align-y: start;
+$grid-align-y: stretch;
 
 /// Set grid margin bottom
 /// @group layout
@@ -151,10 +147,6 @@ $grid-gap: (
     medium: 16px // TODO
 );
 
-/// TODO: Enable flexbox helpers
-/// @group layout
-$enable-flexbox: true;
-
 // Headings
 $heading-font-family: $global-font-primary;
 $heading-font-weight: $global-font-weight-normal;
@@ -163,38 +155,39 @@ $heading-color: inherit;
 $heading-lineheight: $global-font-lineheight;
 $heading-letterspacing: $global-font-letterspacing;
 $heading-margin-bottom: 14px;
-$heading-text-rendering: optimizeLegibility; // TODO
+$heading-text-rendering: optimizeLegibility;
 $heading-sizes: (
   small: (
     'h1': 24,
-    'h2': 20,
-    'h3': 18,
-    'h4': 16,
-    'h5': 14,
-    'h6': 12
+    'h2': 22,
+    'h3': 20,
+    'h4': 18,
+    'h5': 16,
+    'h6': 14
   ),
   medium: (
-    'h1': 24,
-    'h2': 20,
-    'h3': 18,
-    'h4': 16,
+    'h1': 20,
+    'h2': 18,
+    'h3': 16,
+    'h4': 14,
     'h5': 14,
-    'h6': 12
+    'h6': 14
   ),
 );
 
 // Paragraphs
 $paragraph-lineheight: $global-font-lineheight;
 $paragraph-letterspacing: $global-font-letterspacing;
-$paragraph-margin-bottom: 8px;
+$paragraph-margin-bottom: 0;
 $paragraph-text-rendering: optimizeLegibility;
 
 // Links
-$anchor-color: map-get($palette, primary);
-$anchor-color-hover: map-get($palette, primary);
-$anchor-text-weight: $global-font-weight-bold;
+$anchor-color: map-get($palette, black);
+$anchor-color__hover: map-get($palette, primary);
+$anchor-font-weight: $global-font-weight-bold;
 $anchor-text-decoration: none;
-$anchor-text-decoration-hover: underline;
+$anchor-text-decoration__hover: underline;
+$anchor-transition: all $global-animation-duration $global-animation-timing;
 
 // List
 $list-lineheight: $paragraph-lineheight;
@@ -206,20 +199,20 @@ $list-nested-side-margin: 20px;
 
 // Buttons
 $button-font-family: inherit;
-$button-padding: 8px 16px;
+$button-font-size: rem(12);
+$button-text-transform: uppercase;
+$button-padding: rem(8 16);
 $button-margin: 0 0 $global-margin 0;
-$button-fill: solid;
 $button-background: map-get($palette, black);
-$button-hover-background: map-get($palette, black);
-$button-hover-opacity: .7;
-$button-color: -get($palette, white);
-$button-color-alt: map-get($palette, black); // TODO
+$button-background__hover: map-get($palette, dark-grey);
+$button-background__disabled: map-get($palette, medium-grey);
+$button-opacity__hover: .7;
+$button-color: map-get($palette, white);
 $button-radius: 0;
-$button-palette: (primary, success, warning); // TODO
 $button-transition: all $global-animation-duration $global-animation-timing;
 $button-cursor: pointer;
-$button-cursor-hover: pointer;
-$button-cursor-disabled: not-allowed;
+$button-cursor__hover: pointer;
+$button-cursor__disabled: not-allowed;
 
 // Fieldset
 $fieldset-border: 0;
@@ -232,7 +225,7 @@ $legend-margin: 0 0 8px 0;
 
 // Helptext
 $helptext-color: map-get($palette, black);
-$helptext-font-size: 12px;
+$helptext-font-size: rem(14);
 $helptext-font-style: normal;
 
 // Label
@@ -241,6 +234,7 @@ $form-label-font-size: 14px;
 $form-label-text-transform: none;
 $form-label-font-weight: $global-font-weight-bold;
 $form-label-line-height: $global-font-lineheight;
+$form-label-margin-bottom: rem(4);
 
 // Input
 $input-color: map-get($palette, black);

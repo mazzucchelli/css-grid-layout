@@ -8,8 +8,8 @@
     <!-- Grid Example -->
     {% for i in range(1, 12) -%}
         <div class="grid">
-            <div class="col-example cell large-{{i}} medium-{{12 - i}}">{{ i }}</div>
-            <div class="col-example cell large-{{12 - i}} medium-{{i}}">{{ 12 - i }}</div>
+            <div class="col-example cell large-{{i}} medium-{{12 - i}} text-center">{{ i }}</div>
+            <div class="col-example cell large-{{12 - i}} medium-{{i}} text-center">{{ 12 - i }}</div>
         </div>
     {%- endfor %}
 </div>

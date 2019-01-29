@@ -9,11 +9,17 @@ $debug-log: false !default;
 @include responsive-grid-columns();
 
 .grid-container {
+    --m-left: auto;
+    --m-right: auto;
+    --p-left: #{rem(8)};
+    --p-right: #{rem(8)};
+
     max-width: var(--grid-width);
-    margin: 0 auto;
+    margin: var(--m-top) var(--m-right) var(--m-bottom) var(--m-left);
+    padding: var(--p-top) var(--p-right) var(--p-bottom) var(--p-left);
 
     &.expanded {
-        max-width: 100%;
+        --grid-width: 100%;
     }
 }
 

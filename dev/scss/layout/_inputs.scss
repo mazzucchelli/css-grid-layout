@@ -1,6 +1,29 @@
 label {
     display: block;
-    font-weight: bold;
+    color: $form-label-color;
+    font-size: $form-label-font-size;
+    text-transform: $form-label-text-transform;
+    font-weight: $form-label-font-weight;
+    line-height: $form-label-line-height;
+    margin-bottom: $form-label-margin-bottom;
+}
+
+.help-text {
+    display: block;
+    font-size: $helptext-font-size;
+    font-style: $helptext-font-style;
+    color: $helptext-color;
+}
+
+fieldset {
+    border: $fieldset-border;
+    padding: $fieldset-padding;
+    margin: $fieldset-margin;
+}
+
+legend {
+    padding: $legend-padding;
+    margin: $legend-margin;
 }
 
 [type='text'],
@@ -17,59 +40,59 @@ label {
 [type='time'],
 [type='url'],
 [type='color'],
-textarea { // TODO
+textarea {
     display: block;
     box-sizing: border-box;
     width: 100%;
     margin: rem(0 0 10);
     padding: rem(5 10);
+    color: #000;
+    font-weight: normal;
+    font-size: rem(14);
+    font-family: inherit;
+    line-height: 1.5;
+    background-color: rgba(0, 0, 0, 0);
     border: 1px solid #999;
     border-radius: 0;
-    background-color: rgba(0, 0, 0, 0);
     box-shadow: 0;
-    font-family: inherit;
-    font-size: rem(14);
-    font-weight: normal;
-    line-height: 1.5;
-    color: #000;
     transition: box-shadow 0.5s, border-color 0.25s ease-in-out;
     appearance: none;
 }
 
 select {
     margin: rem(0 0 10);
-    padding: rem(5 10);
-    appearance: none;
+    padding: rem(5 24 5 10);
+    color: #000;
+    font-weight: normal;
+    font-size: rem(14);
+    font-family: inherit;
+    line-height: 1.5;
+    background-color: #fff;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' width='32' height='24' viewBox='0 0 32 24'><polygon points='0,0 32,0 16,24' style='fill: rgb%28136, 136, 136%29'></polygon></svg>");
+    background-repeat: no-repeat;
+    background-position: right rem(-16) center;
+    background-size: 9px 6px;
+    background-origin: content-box;
     border: 1px solid #999;
     border-radius: 0;
-    background-color: #fff;
-    font-family: inherit;
-    font-size: rem(14);
-    font-weight: normal;
-    line-height: 1.5;
-    color: #000;
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.…points='0,0 32,0 16,24' style='fill: rgb%2851, 51, 51%29'></polygon></svg>");
-    background-origin: content-box;
-    background-position: right rem(-16) center;
-    background-repeat: no-repeat;
-    background-size: 9px 6px;
     transition: box-shadow 0.5s, border-color 0.25s ease-in-out;
+    appearance: none;
 }
 
 .boolean-field {
-    display: inline-flex;
     position: relative;
-    // margin-bottom: $global-margin;
+
+    display: inline-flex;
     padding-right: rem(10);
 
     input[type="checkbox"],
     input[type="radio"] {
-        opacity: 0;
-        width: 0;
-        height: 0;
         position: absolute;
         top: 0;
         left: 0;
+        width: 0;
+        height: 0;
+        opacity: 0;
     }
 
     .checkbox-label,
@@ -80,11 +103,11 @@ select {
     }
 
     .checkbox-input {
-        display: inline-block;
         position: relative;
+        display: inline-block;
+        margin: 0;
         padding-left: rem(34);
         text-transform: none;
-        margin: 0;
 
         &:before,
         &:after {
@@ -99,8 +122,8 @@ select {
             height: rem(28);
             background-color: transparent;
             border: 1px solid var(--c-medium-grey);
-            transition: all 0.2s;
             cursor: pointer;
+            transition: all 0.2s;
         }
 
         &:after {
@@ -109,19 +132,19 @@ select {
             width: rem(12);
             height: rem(12);
             background: var(--c-black);
-            opacity: 0;
             transform: scale3d(0, 0, 0);
-            transition: all 0.1s;
             cursor: pointer;
+            opacity: 0;
+            transition: all 0.1s;
         }
     }
 
     .radio-input {
-        display: inline-block;
         position: relative;
+        display: inline-block;
+        margin: 0;
         padding-left: rem(34);
         text-transform: none;
-        margin: 0;
 
         &:before,
         &:after {
@@ -134,24 +157,24 @@ select {
             left: 0;
             width: rem(28);
             height: rem(28);
-            border-radius: 50%;
             background-color: transparent;
             border: 1px solid var(--c-medium-grey);
-            transition: all 0.2s;
+            border-radius: 50%;
             cursor: pointer;
+            transition: all 0.2s;
         }
 
         &:after {
             top: rem(8);
             left: rem(8);
-            border-radius: 50%;
             width: rem(12);
             height: rem(12);
             background-color: var(--c-black);
-            opacity: 0;
+            border-radius: 50%;
             transform: scale3d(0, 0, 0);
-            transition: all 0.1s;
             cursor: pointer;
+            opacity: 0;
+            transition: all 0.1s;
         }
     }
 
@@ -162,8 +185,8 @@ select {
 
     input[type="checkbox"]:checked + .checkbox-input:after,
     input[type="radio"]:checked + .radio-input:after {
-        opacity: 1;
         transform: scale3d(1, 1, 1);
+        opacity: 1;
     }
 
     input[type="checkbox"]:checked ~ .checkbox-label,
@@ -175,4 +198,8 @@ select {
     input[type="radio"]:focus ~ .radio-input:before {
         outline: 5px auto -webkit-focus-ring-color;
     }
+}
+
+.input-field.has-error {
+    color: var(--c-alert);
 }

@@ -1,12 +1,30 @@
-button,
 .btn {
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    font-size: 12px;
-    padding: 15px 30px;
-    background: var(--c-black);
-    text-decoration: none;
-    color: var(--c-white);
     display: inline-block;
-    cursor: pointer;
+    margin: $button-padding;
+    padding: $button-padding;
+    color: $button-color;
+    font-size: $button-font-size;
+    font-family: $button-font-family;
+    letter-spacing: $global-font-letterspacing;
+    text-transform: $button-text-transform;
+    text-decoration: none;
+    background: $button-background;
+    border-radius: $button-radius;
+    cursor: $button-cursor;
+    transition: $button-transition;
+
+    &:disabled,
+    &.disabled {
+        color: $button-color;
+        background: $button-background__disabled;
+        cursor: $button-cursor__disabled;
+    }
+
+    &:not(:disabled):not(.disabled):hover,
+    &:not(:disabled):not(.disabled):focus {
+        color: $button-color;
+        background: $button-background__hover;
+        cursor: $button-cursor__hover;
+        opacity: $button-opacity__hover;
+    }
 }

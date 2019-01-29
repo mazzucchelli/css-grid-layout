@@ -114,7 +114,7 @@ a {
 
     &:not(.button):hover {
         --anchor-color: red;
-        --text-decoration: #{$anchor-text-decoration-hover};
+        --text-decoration: #{$anchor-text-decoration__hover};
     }
 }
 
@@ -180,7 +180,7 @@ th {
 
 label {
     display: inline-block;
-    margin-bottom: var(--default-margin);
+    margin-bottom: 0;
 }
 
 button {

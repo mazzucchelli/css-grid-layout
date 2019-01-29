@@ -31,25 +31,16 @@
 ///
 /// @param {Number} $colsnum [$grid-cols-length] - Max columns allowed (usually 12)
 /// @param {Number} $colwidth [1fr] - Columns width
-/// @param {String} css-var - --grid-max-width, --grid-gap, --grid-padding-[cord], --grid-padding, --grid-margin-bottom
+/// @param {String} css-var - --grid-max-width, --grid-gap, --grid-p-[cord], --padding, --m-bottom
 @mixin make-grid($colsnum: $grid-cols-length, $colwidth: 1fr) {
     display: grid;
     width: 100%;
-    padding: var(--grid-padding);
+    margin: 0 auto;
+    margin-bottom: var(--m-bottom);
+    padding: var(--padding);
     grid-gap: var(--grid-gap);
     grid-template-columns: repeat($colsnum, $colwidth);
-    margin: 0 auto;
-    margin-bottom: var(--grid-margin-bottom);
 }
-
-@mixin grid-align() {
-    place-self: var(--grid-align-x) var(--grid-align-y);
-}
-
-// shorthand for cell-align-x + cell-align-y
-// @mixin flex-align($x: var(--x-align), $y: var(--y-align)) {
-//     place-self: var(--x-align) var(--y-align);
-// }
 
 /// Helper classes for visibility 
 @mixin show-hide-up($breakpoints) {
@@ -60,6 +51,7 @@
             .show-for-#{$name} {
                 display: block !important;
             }
+
             .hide-for-#{$name} {
                 display: none !important;
             }
@@ -76,6 +68,7 @@
             .show-for-#{$name}-down {
                 display: block !important;
             }
+
             .hide-for-#{$name}-down {
                 display: none !important;
             }
@@ -92,6 +85,7 @@
             .show-for-#{$name}-only {
                 display: block !important;
             }
+            
             .hide-for-#{$name}-only {
                 display: none !important;
             }
