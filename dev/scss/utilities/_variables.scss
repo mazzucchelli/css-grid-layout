@@ -1,4 +1,24 @@
-@function __getIndex ($el, $val, $target: 'value', $operator: 0) {
+/// Add custom properties to :root from map
+/// @todo prefix
+///
+/// @param {Map} $map - Map to elaborate
+@mixin add-properties($map) {
+    @at-root :root {
+        @each $k, $v in $map {
+            --c-#{$k}: #{$v};
+        }
+    }
+}
+
+/// Get index of map.value - map.key - list.value
+///
+/// @param {Map || List} $el - Variable to use for search
+/// @param {String || Number} $val - Value to search
+/// @param {String} $target ['value'] - Search for `value` or `key`
+/// @param {Number} $operator [0] - Used to get prev or next values in $el
+///
+/// @returns {Number} Index of `$val` in `$el`
+@function -get-index ($el, $val, $target: 'value', $operator: 0) {
     $res: 'null';
 
     @if (type-of($el) == 'map' or type-of($el) == 'list') and $target != 'key'{
@@ -41,7 +61,14 @@
     @return $res;
 }
 
-@function __getValue ($el, $index, $target: 'value') {
+/// Get value of map.value - map.key - list.value - string.letter from given index
+///
+/// @param {Map || List || String} $el - Variable to use for search
+/// @param {String || Number} $index - Index to search
+/// @param {String} $target ['value'] - Search for `value` or `key`
+///
+/// @returns {Number} Value of `$index` in `$el`
+@function -get-value ($el, $index, $target: 'value') {
     $res: 'null';
 
     @if type-of($el) == 'list' or type-of($el) == 'string' {
@@ -62,38 +89,5 @@
         @warn 'Assuming `#{$el}` to be a `map`, a `list` or a `string`';
     }
 
-    @return $res;
-}
-
-@function __checkWay ($string) {
-    @if type-of($string) == 'string' {
-        @if $string == 'up' or $string == 'down' or $string == 'only' {
-            @return 'true';
-        } @else {
-            @return 'false';
-        }
-    }
-}
-
-@function __buildMediaQuery ($viewport, $way, $target: 'screen') {
-    $res: 'false';
-    @if $way == 'up' {
-        $minsize: map-get($breakpoints, $viewport);
-        $res: '#{$target} and (min-width: #{$minsize})';
-    } @else if $way == 'down' {
-        $i: __getIndex($breakpoints, $viewport, 'key');
-        $maxsize: __getValue($breakpoints, $i + 1) - 1px;
-        $res: '#{$target} and (max-width: #{$maxsize})';
-    } @else {
-        $i: __getIndex($breakpoints, $viewport, 'key');
-        $minsize: map-get($breakpoints, $viewport);
-        $maxsize: map-get($breakpoints, __getValue($breakpoints, $i + 1, 'key')) - 1px;
-        $res: '#{$target} and (min-width: #{$minsize}) and (max-width: #{$maxsize})';
-    }
-    @return $res;
-}
-
-@function __buildCustomMediaQuery ($minsize, $maxsize, $target: 'screen') {
-    $res: '#{$target} and (min-width: #{$minsize}) and (max-width: #{$maxsize})';
     @return $res;
 }

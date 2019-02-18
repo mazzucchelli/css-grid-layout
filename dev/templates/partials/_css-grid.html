@@ -1,0 +1,15 @@
+<div class="grid-container">
+    <div class="grid">
+        <div class="cell">
+            <h2>Here's your basic grid:</h2>
+            <h4>12 cols system, using css grid</h4>
+        </div>
+    </div>
+    <!-- Grid Example -->
+    {% for i in range(1, 12) -%}
+        <div class="grid">
+            <div class="col-example cell large-{{i}} medium-{{12 - i}} text-center">{{ i }}</div>
+            <div class="col-example cell large-{{12 - i}} medium-{{i}} text-center">{{ 12 - i }}</div>
+        </div>
+    {%- endfor %}
+</div>

@@ -1,0 +1,59 @@
+// Generate colors custom properties from $map: 
+// Usage: $palette.black --> var(--c-black)
+@include add-properties($palette);
+
+:root {
+    --body-background: var(--c-white);
+    
+    --default-margin: #{$global-margin};
+
+    --font-family: #{$global-font-primary};
+    --font-color: #{$global-font-color};
+    --font-weight: #{$global-font-weight-normal};
+    --font-size: #{$global-font-size};
+    --font-lineheight: #{$global-font-lineheight};
+    --font-letterspacing: #{$global-font-letterspacing};
+
+    --button-cursor: #{$button-cursor};
+    
+    --animation-timing: #{$global-animation-timing};
+    --animation-duration: #{$global-animation-duration};
+    
+    --outline-color: #{$global-outline-color};
+
+    --grid-width: #{$grid-container};
+    --grid-cols-length: #{$grid-cols-length};
+    --grid-align-x: #{$grid-align-x};
+    --grid-align-y: #{$grid-align-y};
+    --grid-gap-x: #{map-get($grid-gap, xsmall)};
+    --grid-gap-y: #{map-get($grid-gap, xsmall)};
+    --grid-gap: var(--grid-gap-x) var(--grid-gap-y);
+
+    --p-top: 0;
+    --p-right: 0;
+    --p-bottom: 0;
+    --p-left: 0;
+    --padding: var(--p-top) var(--p-right) var(--p-bottom) var(--p-left);
+    --m-top: 0;
+    --m-right: 0;
+    --m-bottom: 0;
+    --m-left: 0;
+    --margin: var(--m-top) var(--m-right) var(--m-bottom) var(--m-left);
+
+    --input-color: #{$input-color};
+    --input-placeholder-color: #{$input-placeholder-color};
+    --input-background: #{$input-background};
+    --input-background-focus: #{$input-background-focus};
+    --input-border: #{$input-border};
+
+    --icon-size: #{map-get($icons-size, default)};
+
+    // @include breakpoint (medium) {
+    //     --grid-gap-x: #{map-get($grid-gap, medium)};
+    //     --grid-gap-y: #{map-get($grid-gap, medium)};
+    //     --grid-margin-top: #{map-get($grid-gap, medium)};
+    //     --grid-margin-right: #{map-get($grid-gap, medium)};
+    //     --grid-margin-bottom: #{map-get($grid-gap, medium)};
+    //     --grid-margin-left: #{map-get($grid-gap, medium)};
+    // }
+}

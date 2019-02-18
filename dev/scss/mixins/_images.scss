@@ -1,0 +1,8 @@
+/// Return ratio % as padding-top
+///
+/// @param  {Number} $x - image width
+/// @param  {Number} $y - image height
+@mixin ratio($x, $y) {
+    $res: ($y/$x) * 100;
+    padding-top: unquote(decimal-ceil($res) + '%');
+}

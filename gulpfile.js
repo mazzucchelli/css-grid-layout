@@ -4,30 +4,41 @@ const fs = require('fs');
 const path = require('path');
 const chalk = require('chalk');
 
-const htmlTask = require('./tasks/html');
-const imagesTask = require('./tasks/images');
-const scriptsTask = require('./tasks/scripts');
-const stylesTask = require('./tasks/styles');
-const vendorTask = require('./tasks/vendor');
-const spriteTask = require('./tasks/sprite');
-const docsTask = require('./tasks/docs');
+const htmlTask = require('./node_tasks/html');
+const imagesTask = require('./node_tasks/images');
+const scriptsTask = require('./node_tasks/scripts');
+const stylesTask = require('./node_tasks/styles');
+const vendorTask = require('./node_tasks/vendor');
+const spriteTask = require('./node_tasks/sprite');
+const docsTask = require('./node_tasks/docs');
 
 // $ npm run compile
 // $ npm run build
 gulp.task('compile',
     gulp.parallel(
         scriptsTask.compileJs,
-        stylesTask.compileScss,
         htmlTask.compileHtml,
         spriteTask.compileSvg,
-        imagesTask.minifyImg
+        imagesTask.minifyImg,
+        // gulp.series(
+            stylesTask.compileScss
+            // stylesTask.compileCss
+        // )
     )
 );
 
 // $ npm run compile:scss
 // $ npm run build:scss
-gulp.task('styles',
-    stylesTask.compileScss
+gulp.task('scss',
+    gulp.series(
+        stylesTask.compileScss
+    )
+);
+
+// $ npm run compile:css
+// $ npm run build:css
+gulp.task('css',
+    stylesTask.compileCss
 );
 
 // $ npm run compile:html
@@ -108,14 +119,14 @@ gulp.task('default', () => {
 
         if (['.svg'].indexOf(ext.toLowerCase()) > -1 && tasks.indexOf('icons') === -1) {
             tasks.push('icons');
-        } else if (['.scss'].indexOf(ext.toLowerCase()) > -1 && tasks.indexOf('sass') === -1) {
-            tasks.push('styles');
+        } else if (['.scss'].indexOf(ext.toLowerCase()) > -1 && tasks.indexOf('scss') === -1) {
+            tasks.push('scss');
+        } else if (['.css'].indexOf(ext.toLowerCase()) > -1 && tasks.indexOf('css') === -1) {
+            tasks.push('css');
         } else if (['.js'].indexOf(ext.toLowerCase()) > -1 && tasks.indexOf('scripts') === -1) {
             tasks.push('scripts');
         } else if (['.html', '.njk'].indexOf(ext.toLowerCase()) > -1 && tasks.indexOf('html') === -1) {
             tasks.push('html');
-        } else if (['.ttf', '.otf'].indexOf(ext.toLowerCase()) > -1 && tasks.indexOf('fonts') === -1) {
-            tasks.push('fonts');
         }
 
         if (tasksDebounce) {

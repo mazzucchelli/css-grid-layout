@@ -1,4 +1,281 @@
-@import '../mixins/css-var';
+// Colors
+// Global
+// Breakpoints
+// CSS-grid Layout
+// Flexbox Layout
+// Headings
+// Paragraphs
+// Links
+// List
+// Buttons
+// Fieldset
+// Legend
+// Helptext
+// Label
+// Input
+// Select
+// Checkbox
+// Radio
+// Icons
+// Separator
 
-@import 'root';
+/*
+** 00. Colors
+*/
+
+/// Palette color
+/// @group layout
+$palette: (
+    primary: #42378f,
+    primary-dark: #0a0120,
+    success: #3adb76,
+    warning: #ffae00,
+    alert: #f53844,
+    light-grey: #e6e6e6,
+    medium-grey: #cacaca,
+    dark-grey: #8a8a8a,
+    black: #000000,
+    white: #ffffff
+);
+
+/*
+** 00. Global
+*/
+
+/// Grid container max width
+/// @group layout
+$global-width: rem(1080);
+
+/// Body background
+/// @group layout
+$global-body-background: map-get($palette, white);
+
+/// Primary font
+/// @group typography
+$global-font-primary: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+/// Primary font color
+/// @group typography
+$global-font-color: map-get($palette, black);
+
+/// Default font size
+/// @group typography
+$global-font-size: 16px;
+
+/// Default normal font weight
+/// @group typography
+$global-font-weight-normal: 400;
+
+/// Default bold font weight
+/// @group typography
+$global-font-weight-bold: 700;
+
+/// Default light font weight
+/// @group typography
+$global-font-weight-light: 300;
+
+/// Default font line height
+/// @group typography
+$global-font-lineheight: 1.4;
+
+/// Default font letter spacing
+/// @group typography
+$global-font-letterspacing: .06em;
+
+/// Default animation timing
+/// @group layout
+$global-animation-timing: ease;
+
+/// Default animation duration
+/// @group layout
+$global-animation-duration: .3s;
+
+/// Default outline color
+/// @group ada
+$global-outline-color: map-get($palette, primary);
+
+/// Default base margin value
+/// @group layout
+$global-margin: 8px;
+
+/*
+** 00. Breakpoints
+*/
+
+/// Stored breakpoints
+/// @group layout
+$breakpoints: (
+    small: 0,
+    xsmall: 480px,
+    medium: 768px,
+    large: 1024px,
+    xlarge: 1280px
+);
+
+/*
+** 00. CSS-grid Layout
+*/
+
+/// Set grid max width
+/// @group layout
+$grid-container: $global-width;
+
+/// Number of columns used
+/// @group layout
+$grid-cols-length: 12;
+
+/// Set horizontal align
+/// @group layout
+$grid-align-x: start;
+
+/// Set vertical align
+/// @group layout
+$grid-align-y: stretch;
+
+/// Set grid margin bottom
+/// @group layout
+$grid-margin-bottom: 0;
+
+/// TODO: Create helper classes to handle cells order
+/// @group layout
+$grid-ordering-count: 6;
+
+/// Set grid gap for stored breakpoints
+/// @group layout
+$grid-gap: (
+    xsmall: 8px,
+    medium: 16px // TODO
+);
+
+// Headings
+$heading-font-family: $global-font-primary;
+$heading-font-weight: $global-font-weight-normal;
+$heading-font-style: normal;
+$heading-color: inherit;
+$heading-lineheight: $global-font-lineheight;
+$heading-letterspacing: $global-font-letterspacing;
+$heading-margin-bottom: 14px;
+$heading-text-rendering: optimizeLegibility;
+$heading-sizes: (
+  small: (
+    'h1': 24,
+    'h2': 22,
+    'h3': 20,
+    'h4': 18,
+    'h5': 16,
+    'h6': 14
+  ),
+  medium: (
+    'h1': 20,
+    'h2': 18,
+    'h3': 16,
+    'h4': 14,
+    'h5': 14,
+    'h6': 14
+  ),
+);
+
+// Paragraphs
+$paragraph-lineheight: $global-font-lineheight;
+$paragraph-letterspacing: $global-font-letterspacing;
+$paragraph-margin-bottom: 0;
+$paragraph-text-rendering: optimizeLegibility;
+
+// Links
+$anchor-color: map-get($palette, black);
+$anchor-color__hover: map-get($palette, primary);
+$anchor-font-weight: $global-font-weight-bold;
+$anchor-text-decoration: none;
+$anchor-text-decoration__hover: underline;
+$anchor-transition: all $global-animation-duration $global-animation-timing;
+
+// List
+$list-lineheight: $paragraph-lineheight;
+$list-margin-bottom: $paragraph-margin-bottom;
+$list-style-type: disc;
+$list-style-position: outside;
+$list-side-margin: 20px;
+$list-nested-side-margin: 20px;
+
+// Buttons
+$button-font-family: inherit;
+$button-font-size: rem(12);
+$button-text-transform: uppercase;
+$button-padding: rem(8 16);
+$button-margin: 0 0 $global-margin 0;
+$button-background: map-get($palette, black);
+$button-background__hover: map-get($palette, dark-grey);
+$button-background__disabled: map-get($palette, medium-grey);
+$button-opacity__hover: .7;
+$button-color: map-get($palette, white);
+$button-radius: 0;
+$button-transition: all $global-animation-duration $global-animation-timing;
+$button-cursor: pointer;
+$button-cursor__hover: pointer;
+$button-cursor__disabled: not-allowed;
+
+// Fieldset
+$fieldset-border: 0;
+$fieldset-padding: 0;
+$fieldset-margin: 0;
+
+// Legend
+$legend-padding: 0;
+$legend-margin: 0 0 8px 0;
+
+// Helptext
+$helptext-color: map-get($palette, black);
+$helptext-font-size: rem(14);
+$helptext-font-style: normal;
+
+// Label
+$form-label-color: map-get($palette, black);
+$form-label-font-size: 14px;
+$form-label-text-transform: none;
+$form-label-font-weight: $global-font-weight-bold;
+$form-label-line-height: $global-font-lineheight;
+$form-label-margin-bottom: rem(4);
+
+// Input
+$input-color: map-get($palette, black);
+$input-placeholder-color: map-get($palette, medium-gray);
+$input-font-family: $global-font-primary;
+$input-font-size: 14px;
+$input-font-weight: $global-font-weight-normal;
+$input-line-height: $global-font-lineheight;
+$input-background: transparent;
+$input-background-focus: transparent;
+$input-background-disabled: map-get($palette, light-gray);
+$input-border: 1px solid map-get($palette, light-gray);
+$input-border-focus: 1px solid map-get($palette, black);
+$input-padding: 8px 16px;
+$input-shadow: none;
+$input-shadow-focus: 0 0 4px 1px map-get($palette, primary);
+$input-cursor-disabled: not-allowed;
+$input-transition: box-shadow $global-animation-duration $global-animation-timing, border-color $global-animation-duration $global-animation-timing;
+$input-radius: 0;
+
+// Select
+$select-background: map-get($palette, white);
+$select-triangle-color: map-get($palette, black);
+$select-radius: 0;
+
+// Checkbox
+
+// Radio
+
+// Icons
+$icons-color: currentColor;
+$icons-size: (
+    small: 12px,
+    default: 24px,
+    large: 36px
+);
+
+// Separator
+$hr-width: $global-width;
+$hr-border: 1px solid map-get($palette, primary);
+$hr-margin: rem(16) auto;
+
+@import 'properties';
 @import 'reset';

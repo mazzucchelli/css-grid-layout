@@ -1,6 +1,8 @@
 const configs = require('../gulpconfigs.js');
 const gulp = require('gulp');
 const $ = require('gulp-load-plugins')();
+const cssnext = require('postcss-cssnext');
+// const cssnano = require('cssnano');
 
 var compileStyles = {
     compileScss: function () {
@@ -20,6 +22,17 @@ var compileStyles = {
             // .pipe($.cleancss())
             // TODO: Rename style.css to style.min.css in build scripts
             .pipe($.if(toSourceMaps, $.sourcemaps.write('.')))
+            .pipe(gulp.dest(configs.paths.dest.styles));
+    },
+    compileCss: function () {
+        const plugins = [
+            cssnext({ browsers: ['last 1 version'] })
+            // cssnano()
+        ];
+        return gulp.src(configs.paths.dev.temp)
+            // .pipe($.sourcemaps.init())
+            .pipe($.postcss(plugins))
+            // .pipe($.sourcemaps.write('.'))
             .pipe(gulp.dest(configs.paths.dest.styles));
     }
 };

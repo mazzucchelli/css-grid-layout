@@ -11,7 +11,7 @@
     "html/report-bad-indent": "error"
   },
   "rules": {
-    "indent": [1, 4],
+    "indent": [1, 2],
     "no-trailing-spaces": 1,
     "operator-linebreak": 0,
     "no-multi-spaces": 1,

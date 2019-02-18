@@ -1,0 +1,72 @@
+// headings
+@mixin headings($map) {
+    @each $k, $v in $map {
+        @if $k == small {
+            @each $tag, $size in $v {
+                #{$tag}, .#{$tag} {
+                    margin-bottom: .5rem; // TODO: param
+                    font-size: rem($size);
+                    line-height: 1.4; // TODO: param
+                    text-rendering: $heading-text-rendering;
+                }
+            }
+        } @else {
+            @include breakpoint(#{k}) {
+                @each $tag, $size in $v {
+                    #{$tag}, .#{$tag} {
+                        font-size: rem($size);
+                    }
+                }
+            }
+        }
+    }
+}
+
+@include headings($heading-sizes);
+
+p, span, strong, em {
+    margin-bottom: $paragraph-margin-bottom;
+    line-height: $paragraph-lineheight;
+    letter-spacing: $paragraph-letterspacing;
+    text-rendering: $paragraph-text-rendering;
+}
+
+@mixin text-helpers {
+    .text-left {
+        text-align: left;
+    }
+    
+    .text-center {
+        text-align: center;
+    }
+    
+    .text-right {
+        text-align: right;
+    }
+    
+    .text-strong {
+        p, span {
+            font-weight: bold;
+        }
+    }
+    
+    strong,
+    .strong {
+        font-weight: bold;
+    }
+}
+
+@include text-helpers;
+
+a:not(.btn) {
+    color: $anchor-color;
+    font-weight: $anchor-font-weight;
+    text-decoration: $anchor-text-decoration;
+    
+    &:hover,
+    &:focus {
+        color: $anchor-color__hover;
+        text-decoration: $anchor-text-decoration__hover;
+        transition: $anchor-transition;
+    }
+}

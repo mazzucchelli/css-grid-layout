@@ -1,0 +1,221 @@
+@mixin add-margin-props { 
+    margin: var(--m-top) var(--m-right) var(--m-bottom) var(--m-left);
+}
+
+@mixin add-margin-props-x { 
+    margin-top: var(--m-top);
+    margin-bottom: var(--m-bottom);
+}
+
+@mixin add-margin-props-y { 
+    margin-right: var(--m-right);
+    margin-left: var(--m-left);
+}
+
+@mixin add-padding { 
+    padding: var(--p-top) var(--p-right) var(--p-bottom) var(--p-left);
+}
+
+@mixin add-padding-x { 
+    padding-top: var(--p-top);
+    padding-bottom: var(--p-bottom);
+}
+
+@mixin add-padding-y { 
+    padding-right: var(--p-right);
+    padding-left: var(--p-left);
+}
+
+// flexbox container
+@mixin make-flex-container {
+    display: flex;
+    flex-direction: var(--flex-direction);
+    flex-wrap: var(--flex-wrap);
+    justify-content: var(--flex-justify);
+    align-items: var(--flex-align);
+    @include add-margin-props;
+    @include add-padding;
+}
+
+@mixin flex-container-helpers {
+    .align-right {
+        --flex-justify: flex-end;
+    }
+
+    .align-center {
+        --flex-justify: center;
+    }
+
+    .align-justify {
+        --flex-justify: space-between;
+    }
+
+    .align-spaced {
+        --flex-justify: space-around;
+    }
+
+    .align-top {
+        --flex-align: flex-start;
+    }
+
+    .align-middle {
+        --flex-align: center;
+    }
+
+    .align-button {
+        --flex-align: flex-end;
+    }
+
+    .align-stretch {
+        --flex-align: stretch;
+    }
+
+    .flex-y {
+        --flex-direction: column;
+
+        // .box {
+        //     width: 100%;
+        // }
+    }
+}
+
+.flex {
+    --flex-wrap: wrap;
+    --flex-direction: row;
+    --flex-justify: flex-start;
+    --flex-align: stretch;
+    
+    --m-top: 0;
+    --m-right: 0;
+    --m-bottom: 0;
+    --m-left: 0;
+    
+    --p-top: 0;
+    --p-right: 0;
+    --p-bottom: 0;
+    --p-left: 0;
+    
+    @include make-flex-container;
+}
+
+@include flex-container-helpers;
+
+// flexbox item
+@mixin make-flex-item {
+    flex: var(--box-shrink) var(--box-grow) var(--box-basis);
+    @include add-margin-props;
+    @include add-padding;
+}
+
+@mixin flex-item-helpers {
+    .shrink {
+        --box-shrink: 0;
+        --box-basis: 1;
+    }
+    
+    // .box--auto {
+    //     --flex-grow: 1;
+    // }
+}
+
+.box {
+    --box-shrink: 1;
+    --box-grow: 1;
+    --box-basis: 0;
+    --m-top: 0;
+    --m-right: 0;
+    --m-bottom: 0;
+    --m-left: 0;
+    --p-top: 0;
+    --p-right: 0;
+    --p-bottom: 0;
+    --p-left: 0;
+    
+    @include make-flex-item;
+}
+
+@include flex-item-helpers;
+
+@mixin layout-helpers {
+    .add-margin {
+        --m-top: #{map-get($grid-gap, xsmall)};
+        --m-right: #{map-get($grid-gap, xsmall)};
+        --m-bottom: #{map-get($grid-gap, xsmall)};
+        --m-left: #{map-get($grid-gap, xsmall)};
+    }
+    
+    .add-margin-x {
+        --m-left: #{map-get($grid-gap, xsmall)};
+        --m-right: #{map-get($grid-gap, xsmall)};
+    }
+
+    .add-margin-y {
+        --m-top: #{map-get($grid-gap, xsmall)};
+        --m-bottom: #{map-get($grid-gap, xsmall)};
+    }
+
+    .add-padding {
+        --p-top: #{map-get($grid-gap, xsmall)};
+        --p-right: #{map-get($grid-gap, xsmall)};
+        --p-bottom: #{map-get($grid-gap, xsmall)};
+        --p-left: #{map-get($grid-gap, xsmall)};
+    }
+
+    .add-padding-x {
+        --p-left: #{map-get($grid-gap, xsmall)};
+        --p-right: #{map-get($grid-gap, xsmall)};
+    }
+
+    .add-padding-y {
+        --p-top: #{map-get($grid-gap, xsmall)};
+        --p-bottom: #{map-get($grid-gap, xsmall)};
+    }
+    
+    .children-margin {
+        .box {
+            --m-top: #{map-get($grid-gap, xsmall)};
+            --m-right: #{map-get($grid-gap, xsmall)};
+            --m-bottom: #{map-get($grid-gap, xsmall)};
+            --m-left: #{map-get($grid-gap, xsmall)};
+        }
+    }
+    
+    .children-margin-x {
+        .box {
+            --m-left: #{map-get($grid-gap, xsmall)};
+            --m-right: #{map-get($grid-gap, xsmall)};
+        }
+    }
+
+    .children-margin-y {
+        .box {
+            --m-top: #{map-get($grid-gap, xsmall)};
+            --m-bottom: #{map-get($grid-gap, xsmall)};
+        }
+    }
+
+    .children-padding {
+        .box {
+            --p-top: #{map-get($grid-gap, xsmall)};
+            --p-right: #{map-get($grid-gap, xsmall)};
+            --p-bottom: #{map-get($grid-gap, xsmall)};
+            --p-left: #{map-get($grid-gap, xsmall)};
+        }
+    }
+
+    .children-padding-x {
+        .box {
+            --p-left: #{map-get($grid-gap, xsmall)};
+            --p-right: #{map-get($grid-gap, xsmall)};
+        }
+    }
+
+    .children-padding-y {
+        .box {
+            --p-top: #{map-get($grid-gap, xsmall)};
+            --p-bottom: #{map-get($grid-gap, xsmall)};
+        }
+    }
+}
+
+@include layout-helpers;

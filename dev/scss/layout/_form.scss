@@ -1,9 +1,0 @@
-label {
-    .is-invalid {
-        color: var(--c-alert);
-        
-        &::placeholder {
-            color: $input-placeholder-color;
-        }
-    }
-}
