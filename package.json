@@ -62,10 +62,12 @@
     "gulp-svgmin": "^1.2.4",
     "gulp-webpack": "^1.5.0",
     "handlebars": "^4.1.2",
+    "highlight.js": "^9.15.8",
     "marked": "^0.6.2",
     "path": "^0.12.7",
     "postcss-cssnext": "^3.1.0",
     "sassdoc": "^2.7.0",
+    "string-template": "^1.0.0",
     "stylelint": "^9.6.0",
     "stylelint-config-rational-order": "0.0.2",
     "stylelint-config-recommended-scss": "^3.2.0",
@@ -73,11 +75,5 @@
     "uglifyjs-webpack-plugin": "^1.2.4",
     "underscore-node": "^0.1.2",
     "vinyl-buffer": "^1.0.1"
-  },
-  "dependencies": {
-    "foundation-sites": "^6.5.0-rc.4",
-    "style-sherpa": "^1.0.2",
-    "tingle.js": "^0.13.2",
-    "validate.js": "^0.12.0"
   }
 }
