@@ -2,17 +2,16 @@
 Use a standard grid with `.grid` wrapper
 ```html_example
 <div class="grid">
-    <div class="cell small-1 medium-9">1</div>
-    <div class="cell small-11 medium-3">11</div>
-    <div class="cell small-7 large-6">7</div>
-    <div class="cell small-5 large-6">5</div>
+    <div class="cell small-1 medium-9"></div>
+    <div class="cell small-11 medium-3"></div>
+    <div class="cell small-7 large-6"></div>
+    <div class="cell small-5 large-6"></div>
 </div>
 ```
 
 
 
 # Flex helpers
-
 ```html_example
 <div class="grid">
     <div class="cell">

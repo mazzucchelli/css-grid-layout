@@ -32,10 +32,6 @@ renderer.code = function (code, language) {
 };
 
 const styleguide = function (input, options, cb) {
-    options = Object.assign({
-        template: path.join(__dirname, 'template.html')
-    }, options);
-
     // Read input file
     const inputFile = fs.readFileSync(path.join(process.cwd(), input));
     // The divider for pages is four newlines
@@ -51,30 +47,7 @@ const styleguide = function (input, options, cb) {
         const foundHeadings = body.match('<h1.*>(.*)</h1>');
         const title = foundHeadings && foundHeadings[1] ? foundHeadings[1] : 'Page ' + (i + 1);
         const anchor = title.toLowerCase().replace(/[^\w]+/g, '-');
-
-        let subheadings = null;
-        if (options.includeSubheadings) {
-            const subheadRe = /(<h2.*?>(.*?)<\/h2>)/g;
-
-            const foundSubheadings = [];
-            let match;
-            let i = 0;
-            while ((match = subheadRe.exec(body)) !== null) {
-                i += 1;
-                const subTitle = match[2];
-                const subAnchor = `${anchor}-sub-${i}`;
-                foundSubheadings.push({title: subTitle, anchor: subAnchor, content: match[1]});
-            }
-            if (foundSubheadings.length) {
-                subheadings = foundSubheadings.map(function (subheading) {
-                    body = body.replace(subheading.content, `<section id="${subheading.anchor}"></section>${subheading.content}`);
-                    return {title: subheading.title, anchor: subheading.anchor};
-                });
-            }
-        }
-
         const results = { title: title, anchor: anchor, body: body };
-        if (subheadings) { results.subheadings = subheadings; };
 
         return results;
     });
