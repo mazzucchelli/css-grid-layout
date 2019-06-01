@@ -6,19 +6,24 @@
         grid-column-end: span #{$grid-cols-length};
     }
     // for every breakpoint choosen
-    @each $k, $v in $breakpoints {
+    @each $bp in $breakpoint-classes {
+        $v: map-get($breakpoints, $bp);
         // no media query for min viewport
         @if $v == 0 {
             @for $i from 1 through $num {
-                // small-1, small-2, ...
-                .#{$k}-#{$i} {
+                // sm-1, sm-2, ...
+                $selector: '[class~="#{$bp}:#{$i}"]';
+
+                #{$selector} {
                     grid-column-end: span #{$i};
                 }
             }
         } @else {
-            @include breakpoint(#{$k}) {
+            @include breakpoint(#{$bp}) {
                 @for $i from 1 through $num {
-                    .#{$k}-#{$i} {
+                    $selector: '[class~="#{$bp}:#{$i}"]';
+
+                    #{$selector} {
                         grid-column-end: span #{$i};
                     }
                 }
@@ -42,7 +47,7 @@
     grid-template-columns: repeat($colsnum, $colwidth);
 }
 
-/// Helper classes for visibility 
+/// Helper classes for visibility
 @mixin show-hide-up($breakpoints) {
     @for $i from 2 through length($breakpoints) {
         $name: -get-value($breakpoints, $i, 'key');
@@ -85,7 +90,7 @@
             .show-for-#{$name}-only {
                 display: block !important;
             }
-            
+
             .hide-for-#{$name}-only {
                 display: none !important;
             }

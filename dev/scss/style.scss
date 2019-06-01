@@ -1,5 +1,5 @@
 /// Enables the output of debug messages
-/// @type Boolean 
+/// @type Boolean
 $debug-log: false !default;
 
 @import 'utilities/utilities';
@@ -8,23 +8,25 @@ $debug-log: false !default;
 
 @include responsive-grid-columns();
 
+// [attribute~="value"] - contain word
+// [class*="value"]     - contain letters
+// [attribute|="value"] - start with word
+// [attribute^="value"] - begin with letters
+// [attribute$="value"] - end
+
+@import 'layout/layout';
+
 .grid-container {
-    --m-left: auto;
-    --m-right: auto;
-    --p-left: #{rem(8)};
-    --p-right: #{rem(8)};
-
     max-width: var(--grid-width);
-    margin: var(--m-top) var(--m-right) var(--m-bottom) var(--m-left);
-    padding: var(--p-top) var(--p-right) var(--p-bottom) var(--p-left);
-
-    &.expanded {
-        --grid-width: 100%;
-    }
+    margin: 0 auto;
 }
 
 .grid {
-    @include make-grid();
+    display: grid;
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: var(--m-bottom);
+    padding: var(--padding);
+    grid-gap: var(--grid-gap);
+    grid-template-columns: repeat(12, 1fr);
 }
-
-@import 'layout/layout';

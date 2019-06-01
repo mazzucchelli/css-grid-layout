@@ -26,16 +26,16 @@
 /// Palette color
 /// @group layout
 $palette: (
-    primary: #42378f,
-    primary-dark: #0a0120,
+    gold: #ebcb8b,
+    metal: #0a0120,
     success: #3adb76,
     warning: #ffae00,
     alert: #f53844,
     light-grey: #e6e6e6,
     medium-grey: #cacaca,
     dark-grey: #8a8a8a,
-    black: #000000,
-    white: #ffffff
+    black: #000,
+    white: #fff
 );
 
 /*
@@ -52,7 +52,7 @@ $global-body-background: map-get($palette, white);
 
 /// Primary font
 /// @group typography
-$global-font-primary: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$global-font-primary: "Helvetica Neue", Helvetica, Arial, sans-serif;
 
 /// Primary font color
 /// @group typography
@@ -80,7 +80,7 @@ $global-font-lineheight: 1.4;
 
 /// Default font letter spacing
 /// @group typography
-$global-font-letterspacing: .06em;
+$global-font-letterspacing: 0.06em;
 
 /// Default animation timing
 /// @group layout
@@ -88,7 +88,7 @@ $global-animation-timing: ease;
 
 /// Default animation duration
 /// @group layout
-$global-animation-duration: .3s;
+$global-animation-duration: 0.3s;
 
 /// Default outline color
 /// @group ada
@@ -105,12 +105,15 @@ $global-margin: 8px;
 /// Stored breakpoints
 /// @group layout
 $breakpoints: (
-    small: 0,
-    xsmall: 480px,
-    medium: 768px,
-    large: 1024px,
-    xlarge: 1280px
+  sm: 0,
+  md: 640px,
+  lg: 1024px,
+  xlg: 1280px
 );
+
+/// Responsive classes
+/// @group layout
+$breakpoint-classes: (sm, md, lg);
 
 /*
 ** 00. CSS-grid Layout
@@ -143,8 +146,8 @@ $grid-ordering-count: 6;
 /// Set grid gap for stored breakpoints
 /// @group layout
 $grid-gap: (
-    xsmall: 8px,
-    medium: 16px // TODO
+  sm: 8px,
+  md: 16px // TODO
 );
 
 // Headings
@@ -157,22 +160,22 @@ $heading-letterspacing: $global-font-letterspacing;
 $heading-margin-bottom: 14px;
 $heading-text-rendering: optimizeLegibility;
 $heading-sizes: (
-  small: (
-    'h1': 24,
-    'h2': 22,
-    'h3': 20,
-    'h4': 18,
-    'h5': 16,
-    'h6': 14
+  sm: (
+    "h1": 24,
+    "h2": 22,
+    "h3": 20,
+    "h4": 18,
+    "h5": 16,
+    "h6": 14
   ),
-  medium: (
-    'h1': 20,
-    'h2': 18,
-    'h3': 16,
-    'h4': 14,
-    'h5': 14,
-    'h6': 14
-  ),
+  md: (
+    "h1": 20,
+    "h2": 18,
+    "h3": 16,
+    "h4": 14,
+    "h5": 14,
+    "h6": 14
+  )
 );
 
 // Paragraphs
@@ -206,7 +209,7 @@ $button-margin: 0 0 $global-margin 0;
 $button-background: map-get($palette, black);
 $button-background__hover: map-get($palette, dark-grey);
 $button-background__disabled: map-get($palette, medium-grey);
-$button-opacity__hover: .7;
+$button-opacity__hover: 0.7;
 $button-color: map-get($palette, white);
 $button-radius: 0;
 $button-transition: all $global-animation-duration $global-animation-timing;
@@ -252,7 +255,9 @@ $input-padding: 8px 16px;
 $input-shadow: none;
 $input-shadow-focus: 0 0 4px 1px map-get($palette, primary);
 $input-cursor-disabled: not-allowed;
-$input-transition: box-shadow $global-animation-duration $global-animation-timing, border-color $global-animation-duration $global-animation-timing;
+$input-transition: box-shadow $global-animation-duration
+    $global-animation-timing,
+  border-color $global-animation-duration $global-animation-timing;
 $input-radius: 0;
 
 // Select
@@ -267,9 +272,9 @@ $select-radius: 0;
 // Icons
 $icons-color: currentColor;
 $icons-size: (
-    small: 12px,
-    default: 24px,
-    large: 36px
+  small: 12px,
+  default: 24px,
+  large: 36px
 );
 
 // Separator
@@ -277,5 +282,5 @@ $hr-width: $global-width;
 $hr-border: 1px solid map-get($palette, primary);
 $hr-margin: rem(16) auto;
 
-@import 'properties';
-@import 'reset';
+@import "properties";
+@import "reset";

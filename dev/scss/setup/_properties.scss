@@ -1,10 +1,10 @@
-// Generate colors custom properties from $map: 
+// Generate colors custom properties from $map:
 // Usage: $palette.black --> var(--c-black)
 @include add-properties($palette);
 
 :root {
     --body-background: var(--c-white);
-    
+
     --default-margin: #{$global-margin};
 
     --font-family: #{$global-font-primary};
@@ -15,18 +15,18 @@
     --font-letterspacing: #{$global-font-letterspacing};
 
     --button-cursor: #{$button-cursor};
-    
+
     --animation-timing: #{$global-animation-timing};
     --animation-duration: #{$global-animation-duration};
-    
+
     --outline-color: #{$global-outline-color};
 
     --grid-width: #{$grid-container};
     --grid-cols-length: #{$grid-cols-length};
     --grid-align-x: #{$grid-align-x};
     --grid-align-y: #{$grid-align-y};
-    --grid-gap-x: #{map-get($grid-gap, xsmall)};
-    --grid-gap-y: #{map-get($grid-gap, xsmall)};
+    --grid-gap-x: #{map-get($grid-gap, sm)};
+    --grid-gap-y: #{map-get($grid-gap, sm)};
     --grid-gap: var(--grid-gap-x) var(--grid-gap-y);
 
     --p-top: 0;

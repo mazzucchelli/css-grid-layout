@@ -2,54 +2,13 @@
 Use a standard grid with `.grid` wrapper
 ```html_example
 <div class="grid">
-    <div class="cell small-1 medium-9"></div>
-    <div class="cell small-11 medium-3"></div>
-    <div class="cell small-7 large-6"></div>
-    <div class="cell small-5 large-6"></div>
+    <div class="cell sm:1 md:9 bg-gold">|</div>
+    <div class="cell sm:11 md:3 bg-gold">|</div>
+    <div class="cell sm:7 lg:6 bg-gold">|</div>
+    <div class="cell sm:5 lg:6 bg-gold">|</div>
 </div>
 ```
 
-
-
-# Flex helpers
-```html_example
-<div class="grid">
-    <div class="cell">
-        <h4>Flexbox helpers</h4>
-    </div>
-</div>
-<div class="flex">
-    <div class="box-example box flex align-center">
-        <span class="capitalize">auto</span>
-    </div>
-    <div class="box-example box flex align-center">
-        <span class="capitalize">auto</span>
-    </div>
-    <div class="box-example box flex align-center">
-        <span class="capitalize">auto</span>
-    </div>
-    <div class="box-example box flex align-center">
-        <span class="capitalize">auto</span>
-    </div>
-</div>
-<div class="flex">
-    <div class="box-example box flex align-center">
-        <span class="capitalize">auto</span>
-    </div>
-    <div class="box-example box shrink flex align-center add-margin">
-        <span class="capitalize">shrink & margin</span>
-    </div>
-    <div class="box-example box shrink flex align-center add-padding">
-        <span class="capitalize">shrink & padding</span>
-    </div>
-    <div class="box-example box flex align-center add-margin-x">
-        <span class="capitalize">auto & margin</span>
-    </div>
-    <div class="box-example box flex align-center align-middle">
-        <span class="capitalize">auto & middle</span>
-    </div>
-</div>
-```
 
 
 
@@ -57,7 +16,7 @@ Use a standard grid with `.grid` wrapper
 
 ```html_example
 <div class="grid">
-    <div class="cell medium-6">
+    <div class="cell md:6">
         <h1>Heading - H1</h1>
         <h2>Heading - H2</h2>
         <h3>Heading - H3</h3>
@@ -65,7 +24,7 @@ Use a standard grid with `.grid` wrapper
         <h5>Heading - H5</h5>
         <h6>Heading - H6</h6>
     </div>
-    <div class="cell medium-6">
+    <div class="cell md:6">
         <p>Nulla aliquip nostrud non <a href="#">dolor</a>. Quis dolore reprehenderit ex do magna enim excepteur officia mollit. In et ex non aliquip cupidatat ea nulla culpa.</p>
     </div>
 </div>
@@ -95,24 +54,24 @@ Use a standard grid with `.grid` wrapper
 ```html_example
 <form>
     <div class="grid">
-        <div class="cell medium-4">
+        <div class="cell md:4">
             <label>Input Label</label>
             <input type="text" placeholder="placeholder">
         </div>
-        <div class="cell medium-4">
+        <div class="cell md:4">
             <label>Input Label</label>
             <input type="text">
             <span class="help-text">This is the help text</span>
         </div>
-        <div class="cell medium-4">
+        <div class="cell md:4">
             <label>Input Label</label>
             <input type="text" disabled>
         </div>
-        <div class="cell medium-4">
+        <div class="cell md:4">
             <label>Input Label</label>
             <input type="text" placeholder="placeholder">
         </div>
-        <div class="cell medium-4">
+        <div class="cell md:4">
             <label>Select Box</label>
             <select>
                 <option value="husker">Husker</option>
@@ -121,7 +80,7 @@ Use a standard grid with `.grid` wrapper
                 <option value="apollo">Apollo</option>
             </select>
         </div>
-        <div class="cell medium-4">
+        <div class="cell md:4">
             <label>Select Box</label>
             <select disabled>
                 <option value="husker">Husker</option>
@@ -130,7 +89,7 @@ Use a standard grid with `.grid` wrapper
                 <option value="apollo">Apollo</option>
             </select>
         </div>
-        <div class="cell medium-6">
+        <div class="cell md:6">
             <label for="input-id-1" class="boolean-field">
                 <input type="checkbox"
                     required
@@ -151,7 +110,7 @@ Use a standard grid with `.grid` wrapper
                 <span class="checkbox-label">Input Label</span>
             </label>
         </div>
-        <div class="cell medium-6">
+        <div class="cell md:6">
             <label for="input-id-3" class="boolean-field">
                 <input type="radio"
                     required

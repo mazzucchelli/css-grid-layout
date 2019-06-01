@@ -11,10 +11,13 @@
 
     <!-- Style guide-specific CSS goes here. -->
     <style>
-        #standard-grid-system .ss-code-live .cell {
-            color: #2b303b;
-            background: #ebcb8b;
-            padding: 5px 10px;
+        .ss-code-live .cell {
+            resize: both;
+            overflow: auto;
+        }
+
+        .ss-code-live .cell span {
+            padding: 0 5px;
         }
 
         p code {
@@ -47,13 +50,19 @@
             color: #c0c5ce;
             padding: 15px 20px;
             font-size: 14px;
+            border: 10px solid #ebcb8b;
         }
 
         .ss-code .cpbtn {
             position: absolute;
-            top: 0;
-            right: 0;
+            top: 10px;
+            right: 10px;
             cursor: pointer;
+            padding: 5px 10px;
+        }
+
+        .ss-code .cpbtn:hover {
+            opacity: 1;
         }
 
         /* This styles the vertical tabs used for the table of contents. */
@@ -61,66 +70,29 @@
             width: 100%;
             max-width: 100%;
         }
-
-        /* This styles the example rows used in the grid documentation. */
-        .row.display {
-            background: #eee;
-            font-size: 11px;
-            margin-bottom: 10px;
-            line-height: 2rem;
-            border: solid 1px #c6c6c6;
-            margin-left: 0 !important;
-            margin-right: 0 !important;
-        }
-
-        .row.display .columns:nth-child(2),
-        .row.display .columns.small-centered,
-        .row.display .columns.large-centered {
-            background: #e1e1e1;
-        }
-
-        .row.display .columns.color-end {
-            background: #d4d4d4;
-        }
-
-        /* This styles the color blocks used in the color documentation. */
-        .color-block {
-            border-radius: 2px;
-            display: block;
-            padding: 8px 8px 6px;
-            color: #333;
-            text-transform: uppercase;
-            border: 1px solid #ddd;
-            box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .color-block span {
-            display: block;
-            width: 100%;
-            height: 100px;
-            margin-bottom: 0.42857rem;
-        }
     </style>
 </head>
 
 <body>
 
-    <div class="grid">
-        <div class="cell large-2 medium-3">
-            <dl class="vertical tabs" data-tab>
-                {{#each pages}}
-                <dd{{#if @first}} class="active" {{/if}}><a href="#{{ anchor }}">{{ title }}</a></dd>
-                    {{/each}}
-            </dl>
-        </div>
+    <div class="grid-container">
+        <div class="grid">
+            <div class="cell lg:2 md:3">
+                <dl class="vertical tabs" data-tab>
+                    {{#each pages}}
+                    <dd{{#if @first}} class="active" {{/if}}><a href="#{{ anchor }}">{{ title }}</a></dd>
+                        {{/each}}
+                </dl>
+            </div>
 
-        <div class="cell large-10 medium-9">
-            <div class="tabs-content">
-                {{#each pages}}
-                <section class="content {{#if @first}}active{{/if}}" id="{{ anchor }}">
-                    {{ body }}
-                </section>
-                {{/each}}
+            <div class="cell lg:10 md:9">
+                <div class="tabs-content">
+                    {{#each pages}}
+                    <section class="content {{#if @first}}active{{/if}}" id="{{ anchor }}">
+                        {{ body }}
+                    </section>
+                    {{/each}}
+                </div>
             </div>
         </div>
     </div>
