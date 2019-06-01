@@ -1,30 +1,52 @@
 .btn {
     display: inline-block;
-    margin: $button-padding;
-    padding: $button-padding;
-    color: $button-color;
-    font-size: $button-font-size;
-    font-family: $button-font-family;
-    letter-spacing: $global-font-letterspacing;
-    text-transform: $button-text-transform;
+    margin: 0;
+    padding: rem(10 20);
+    color: map-get($palette, metal);
     text-decoration: none;
-    background: $button-background;
-    border-radius: $button-radius;
-    cursor: $button-cursor;
-    transition: $button-transition;
+    background: map-get($palette, gold);
+    border: 0;
+    border-radius: 0;
+    cursor: pointer;
+    transition: all .2s ease-out;
 
     &:disabled,
     &.disabled {
-        color: $button-color;
-        background: $button-background__disabled;
-        cursor: $button-cursor__disabled;
+        color: map-get($palette, dark-grey);
+        background: map-get($palette, medium-grey);
+        cursor: default;
     }
 
-    &:not(:disabled):not(.disabled):hover,
-    &:not(:disabled):not(.disabled):focus {
-        color: $button-color;
-        background: $button-background__hover;
-        cursor: $button-cursor__hover;
-        opacity: $button-opacity__hover;
+    &:hover,
+    &:focus {
+        color: map-get($palette, metal);
+        background: map-get($palette, gold);
+        opacity: .7;
     }
 }
+
+// .button {
+//     @each $color, $hex in $palette {
+//         &.button-#{$color} {
+//             color: $text-color;
+//             background: $hex;
+
+//             &:not(:disabled) {
+//                 border: 1px solid $hex;
+//             }
+
+//             &.hollow {
+//                 background: transparent;
+//                 color: $hex;
+//                 border: 1px solid $hex;
+
+//                 &.button-#{$color} {
+//                     &:hover {
+//                         background: $hex;
+//                         color: $text-color;
+//                     }
+//                 }
+//             }
+//         }
+//     }
+// }

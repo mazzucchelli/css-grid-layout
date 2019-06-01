@@ -28,7 +28,8 @@ module.exports = {
     styleguide: {
         template: './dev/templates/base/styleguide.hbs',
         src: [
-            dev + 'uikit/index'
+            dev + 'uikit/index',
+            dev + 'uikit/flexbox'
         ],
         dest: dest + 'uikit'
     },

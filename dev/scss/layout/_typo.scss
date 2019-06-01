@@ -31,42 +31,58 @@ p, span, strong, em {
     text-rendering: $paragraph-text-rendering;
 }
 
-@mixin text-helpers {
-    .text-left {
-        text-align: left;
-    }
-    
-    .text-center {
-        text-align: center;
-    }
-    
-    .text-right {
-        text-align: right;
-    }
-    
-    .text-strong {
-        p, span {
-            font-weight: bold;
-        }
-    }
-    
-    strong,
-    .strong {
-        font-weight: bold;
-    }
+strong,
+.strong {
+    font-weight: bold;
 }
-
-@include text-helpers;
 
 a:not(.btn) {
     color: $anchor-color;
     font-weight: $anchor-font-weight;
     text-decoration: $anchor-text-decoration;
-    
+
     &:hover,
     &:focus {
         color: $anchor-color__hover;
         text-decoration: $anchor-text-decoration__hover;
         transition: $anchor-transition;
+    }
+}
+
+@mixin text-classes($bpMap, $paletteMap) {
+    @each $bp, $bpVal in $bpMap {
+        @if ($bpVal == 0) {
+            .text-left {
+                text-align: left;
+            }
+
+            .text-center {
+                text-align: center;
+            }
+
+            .text-right {
+                text-align: right;
+            }
+        } @else {
+            @include breakpoint($bp) {
+                @each $col, $colVal in $paletteMap {
+                    $elLeft: '[class~="#{$bp}:text-left"]';
+                    $elCenter: '[class~="#{$bp}:text-center"]';
+                    $elRight: '[class~="#{$bp}:text-right"]';
+
+                    #{$elLeft} {
+                        text-align: left;
+                    }
+
+                    #{$elCenter} {
+                        text-align: center;
+                    }
+
+                    #{$elRight} {
+                        text-align: right;
+                    }
+                }
+            }
+        }
     }
 }

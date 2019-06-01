@@ -26,7 +26,7 @@ renderer.code = function (code, language) {
     }
 
     var renderedCode = hljs.highlight(language, code).value;
-    var output = format('<div class="ss-code"><pre><code class="{0}">{1}</code><button class="cpbtn">Copy</button></pre></div>', [language, renderedCode]);
+    var output = format('<div class="ss-code"><pre><code class="{0}">{1}</code><button class="cpbtn btn">Copy</button></pre></div>', [language, renderedCode]);
 
     return output + extraOutput;
 };

@@ -57,21 +57,21 @@
 }
 
 /// Create media query
-/// @example @include breakpoint(small) { ... }
-/// @example @include breakpoint(medium only) { ... }
-/// @example @include breakpoint(large down) { ... }
+/// @example @include breakpoint(sm) { ... }
+/// @example @include breakpoint(md only) { ... }
+/// @example @include breakpoint(lg down) { ... }
 /// @example @include breakpoint((custom, 200, 600)) { ... }
 @mixin breakpoint($attrs) {
     $mq: 'false';
 
-    // if string, just the breakpoint 
+    // if string, just the breakpoint
     @if type-of($attrs) == 'string' {
         // if breakpoint exists
         @if map-has-key($breakpoints, $attrs) {
             // mobile first, hardcoded 'up'
             $mq: -build-media-query($attrs, 'up');
         }
-    } 
+    }
     // if list, breakpoint + direction + target
     @else if type-of($attrs) == 'list' {
         // get breakpoint
@@ -85,7 +85,7 @@
             @if -check-way($way) {
                 $mq: -build-media-query($viewport, $way);
             }
-        } 
+        }
         // if $viewport == 'custom' trigger custom media query
         @else if $viewport == 'custom' {
             $minsize: -get-value($attrs, 2);

@@ -1,0 +1,33 @@
+@mixin color-classes($bpList, $paletteMap) {
+    @each $bp in $bpList {
+        $bpVal: map-get($breakpoints, $bp);
+        @if ($bpVal == 0) {
+            @each $col, $colVal in $paletteMap {
+                .bg-#{$col} {
+                    background: $colVal;
+                }
+
+                .text-#{$col} {
+                    color: $colVal;
+                }
+            }
+        } @else {
+            @include breakpoint($bp) {
+                @each $col, $colVal in $paletteMap {
+                    $bgSelector: '[class~="#{$bp}:bg-#{$col}"]';
+                    $textSelector: '[class~="#{$bp}:text-#{$col}"]';
+
+                    #{$bgSelector} {
+                        background: $colVal;
+                    }
+
+                    #{$textSelector} {
+                        color: $colVal;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@include color-classes($breakpoint-classes, $palette);
