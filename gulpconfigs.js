@@ -25,6 +25,13 @@ module.exports = {
             // './node_modules/what-input/dist/what-input.min.js'
         ]
     },
+    styleguide: {
+        template: './dev/templates/base/styleguide.hbs',
+        src: [
+            dev + 'uikit/index'
+        ],
+        dest: dest + 'uikit'
+    },
     sassdoc: {
         src: dev + 'scss/**/*.scss',
         dest: './docs/styles/'

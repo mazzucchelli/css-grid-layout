@@ -1,17 +1,13 @@
 {
   "extends": "standard",
   "env": {
-    "browser": true,
-    "jquery": true
+    "browser": true
   },
-  "plugins": ["isml"],
   "settings": {
-    "isml/html-extensions": [".html", ".isml"],
-    "html/indent": "tab",
     "html/report-bad-indent": "error"
   },
   "rules": {
-    "indent": [1, 2],
+    "indent": [1, 4],
     "no-trailing-spaces": 1,
     "operator-linebreak": 0,
     "no-multi-spaces": 1,
@@ -23,7 +19,5 @@
     "space-infix-ops": 1,
     "spaced-comment": [1, "always"]
   },
-  "globals": {
-    "Foundation": true
-  }
+  "globals": {}
 }
