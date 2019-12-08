@@ -1,4 +1,5 @@
-# flex-x
+## flex-x
+
 ```html_example
 <div class="grid">
     <div class="cell md:4 bg-gold">
@@ -43,7 +44,8 @@
 
 
 
-# flex-y
+## flex-y
+
 ```html_example
 <div class="grid">
     <div class="cell md:4 bg-gold">
@@ -81,7 +83,8 @@
 
 
 
-# self-align
+## self-align
+
 ```html_example
 <div class="grid">
     <div class="cell md:6 bg-gold">

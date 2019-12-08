@@ -1,52 +1,56 @@
 .btn {
-    display: inline-block;
-    margin: 0;
-    padding: rem(10 20);
-    color: map-get($palette, metal);
-    text-decoration: none;
-    background: map-get($palette, gold);
-    border: 0;
-    border-radius: 0;
-    cursor: pointer;
-    transition: all .2s ease-out;
+    padding: $btn-padding;
+    color: $btn-color;
+    font-size: $btn-font-size;
+    line-height: $btn-line-height;
+    letter-spacing: $btn-letter-spacing;
+    text-transform: $btn-text-transform;
+    background: $btn-background;
+    border: $btn-border;
+    border-radius: $btn-border-radius;
+    cursor: $btn-cursor;
+    transition: $btn-transition;
 
     &:disabled,
-    &.disabled {
-        color: map-get($palette, dark-grey);
-        background: map-get($palette, medium-grey);
-        cursor: default;
+    &.is-disabled {
+        color: $btn-color-disabled;
+        background: $btn-background-disabled;
+        border: $btn-border-disabled;
+        cursor: $btn-cursor-disabled;
     }
 
     &:hover,
     &:focus {
-        color: map-get($palette, metal);
-        background: map-get($palette, gold);
-        opacity: .7;
+        color: $btn-color-hover;
+        background: $btn-background-hover;
+        border: $btn-border-hover;
     }
 }
 
-// .button {
-//     @each $color, $hex in $palette {
-//         &.button-#{$color} {
-//             color: $text-color;
-//             background: $hex;
+@mixin buttons ($palette, $text-color) {
+    @each $color, $hex in $palette {
+        &.btn-#{$color} {
+            color: $text-color;
+            background: $hex;
 
-//             &:not(:disabled) {
-//                 border: 1px solid $hex;
-//             }
+            // &:not(:disabled) {
+            //     border: 1px solid $hex;
+            // }
 
-//             &.hollow {
-//                 background: transparent;
-//                 color: $hex;
-//                 border: 1px solid $hex;
+            // &.hollow {
+            //     color: $hex;
+            //     background: transparent;
+            //     border: 1px solid $hex;
 
-//                 &.button-#{$color} {
-//                     &:hover {
-//                         background: $hex;
-//                         color: $text-color;
-//                     }
-//                 }
-//             }
-//         }
-//     }
-// }
+            //     &.button-#{$color} {
+            //         &:hover {
+            //             color: $text-color;
+            //             background: $hex;
+            //         }
+            //     }
+            // }
+        }
+    }
+}
+
+@include buttons($palette, map-get($palette, medium-grey));

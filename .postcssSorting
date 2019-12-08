@@ -1,0 +1,8 @@
+{
+	"properties-order": [
+		"margin",
+		"padding",
+		"border",
+		"background"
+	]
+}

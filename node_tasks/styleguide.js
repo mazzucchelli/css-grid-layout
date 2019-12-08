@@ -34,18 +34,25 @@ renderer.code = function (code, language) {
 const styleguide = function (input, options, cb) {
     // Read input file
     const inputFile = fs.readFileSync(path.join(process.cwd(), input));
-    // The divider for pages is four newlines
-    let pages = inputFile.toString().replace(/(?:\r\n)/mg, '\n').split('\n\n\n\n');
+    // The divider for sections is four newlines
+    let sections = inputFile.toString().replace(/(?:\r\n)/mg, '\n').split('\n\n\n\n');
+
+    //
+    const pageHTML = marked(inputFile.toString());
+    const foundTitle = pageHTML.match('<h1.*>(.*)</h1>');
+    const pageTitle = foundTitle && foundTitle[1] ? foundTitle[1] : 'Page';
+    console.log('pagetitle', pageTitle);
+    //
 
     // Process each page
-    pages = pages.map(function (page, i) {
+    sections = sections.map(function (section, i) {
     // Convert Markdown to HTML
-        let body = marked(page, { renderer: renderer });
+        let body = marked(section, { renderer: renderer });
 
-        // Find the title of the page by identifying the <h1>
+        // Find the title of the section by identifying the <h2>
         // The second match is the inner group
-        const foundHeadings = body.match('<h1.*>(.*)</h1>');
-        const title = foundHeadings && foundHeadings[1] ? foundHeadings[1] : 'Page ' + (i + 1);
+        const foundHeadings = body.match('<h2.*>(.*)</h2>');
+        const title = foundHeadings && foundHeadings[1] ? foundHeadings[1] : 'Section ' + (i + 1);
         const anchor = title.toLowerCase().replace(/[^\w]+/g, '-');
         const results = { title: title, anchor: anchor, body: body };
 
@@ -57,7 +64,7 @@ const styleguide = function (input, options, cb) {
     const template = handlebars.compile(templateFile.toString(), { noEscape: true });
     const outputPath = path.join(process.cwd(), options.output);
 
-    fs.writeFile(outputPath, template({ pages: pages }), cb);
+    fs.writeFile(outputPath, template({ pages: sections }), cb);
 };
 
 configs.styleguide.src.forEach(kitPath => {

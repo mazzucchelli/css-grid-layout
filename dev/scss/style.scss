@@ -2,9 +2,9 @@
 /// @type Boolean
 $debug-log: false !default;
 
-@import 'utilities/utilities';
-@import 'setup/setup';
-@import 'mixins/mixins';
+@import "utilities/utilities";
+@import "setup/setup";
+@import "mixins/mixins";
 
 @include responsive-grid-columns();
 
@@ -14,19 +14,19 @@ $debug-log: false !default;
 // [attribute^="value"] - begin with letters
 // [attribute$="value"] - end
 
-@import 'layout/layout';
+@import "layout/layout";
 
 .grid-container {
-    max-width: var(--grid-width);
-    margin: 0 auto;
+  margin: 0 auto;
+  max-width: var(--grid-width);
 }
 
 .grid {
-    display: grid;
-    width: 100%;
-    margin: 0 auto;
-    margin-bottom: var(--m-bottom);
-    padding: var(--padding);
-    grid-gap: var(--grid-gap);
-    grid-template-columns: repeat(12, 1fr);
+  display: grid;
+  grid-gap: var(--grid-gap);
+  grid-template-columns: repeat(12, 1fr);
+  margin: 0 auto;
+  margin-bottom: var(--m-bottom);
+  padding: var(--padding);
+  width: 100%;
 }

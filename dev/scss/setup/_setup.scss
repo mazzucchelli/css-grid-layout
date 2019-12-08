@@ -201,21 +201,25 @@ $list-side-margin: 20px;
 $list-nested-side-margin: 20px;
 
 // Buttons
-$button-font-family: inherit;
-$button-font-size: rem(12);
-$button-text-transform: uppercase;
-$button-padding: rem(8 16);
-$button-margin: 0 0 $global-margin 0;
-$button-background: map-get($palette, black);
-$button-background__hover: map-get($palette, dark-grey);
-$button-background__disabled: map-get($palette, medium-grey);
-$button-opacity__hover: 0.7;
-$button-color: map-get($palette, white);
-$button-radius: 0;
-$button-transition: all $global-animation-duration $global-animation-timing;
-$button-cursor: pointer;
-$button-cursor__hover: pointer;
-$button-cursor__disabled: not-allowed;
+$btn-border: 0;
+$btn-border-hover: 0;
+$btn-border-disabled: 0;
+$btn-border-radius: 0;
+$btn-padding: rem(10 20);
+$btn-font-size: rem(12);
+$btn-letter-spacing: .1em;
+$btn-line-height: 1.4;
+$btn-text-transform: uppercase;
+$btn-color: map-get($palette, metal);
+$btn-color-hover: map-get($palette, metal);
+$btn-color-disabled: map-get($palette, dark-grey);
+$btn-background: map-get($palette, gold);
+$btn-background-hover: map-get($palette, gold);
+$btn-background-disabled: map-get($palette, medium-grey);
+$btn-cursor: pointer;
+$btn-cursor-hover: pointer;
+$btn-cursor-disabled: default;
+$btn-transition: all .2s ease-out;
 
 // Fieldset
 $fieldset-border: 0;

@@ -16,14 +16,14 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
 
 body {
     margin: 0;
-    font-family: var(--font-family);
-    font-size: var(--font-size);
-    font-weight: var(--font-weight);
-    line-height: var(--font-lineheight);
-    letter-spacing: var(--font-letterspacing);
-    color: var(--font-color);
+    color: #000;
+    font-weight: normal;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    line-height: 1.4;
+    letter-spacing: 0.08em;
     text-align: left;
-    background-color: var(--body-background);
+    background-color: transparent;
 }
 
 [tabindex="-1"]:focus {
@@ -44,8 +44,8 @@ abbr[title],
 abbr[data-original-title] {
     text-decoration: underline;
     text-decoration: underline dotted;
-    cursor: help;
     border-bottom: 0;
+    cursor: help;
 }
 
 address {
@@ -153,9 +153,9 @@ figure {
 }
 
 img {
+    max-width: 100%;
     vertical-align: middle;
     border-style: none;
-    max-width: 100%;
 }
 
 svg:not(:root) {
@@ -169,7 +169,7 @@ table {
 caption {
     padding-top: 8px;
     padding-bottom: 8px;
-    color: var(--font-color);
+    color: #000;
     text-align: left;
     caption-side: bottom;
 }
@@ -183,23 +183,14 @@ label {
     margin-bottom: 0;
 }
 
-button {
-    border-radius: 0;
-}
-
-button:focus {
-    outline: 1px dotted;
-    outline: 5px auto -webkit-focus-ring-color;
-}
-
 input,
-button,
 select,
 optgroup,
-textarea {
+textarea,
+button {
     margin: 0;
-    font-family: inherit;
     font-size: inherit;
+    font-family: inherit;
     line-height: inherit;
 }
 
@@ -220,6 +211,10 @@ html [type="button"],
     appearance: button;
 }
 
+button {
+    border-radius: 0;
+}
+
 button::-moz-focus-inner,
 [type="button"]::-moz-focus-inner,
 [type="reset"]::-moz-focus-inner,
@@ -228,12 +223,16 @@ button::-moz-focus-inner,
     border-style: none;
 }
 
+button:focus {
+    outline: 1px dotted;
+    outline: 5px auto -webkit-focus-ring-color;
+}
+
 input[type="radio"],
 input[type="checkbox"] {
     box-sizing: border-box;
     padding: 0;
 }
-
 
 input[type="date"],
 input[type="time"],
@@ -249,8 +248,8 @@ textarea {
 
 fieldset {
     min-width: 0;
-    padding: 0;
     margin: 0;
+    padding: 0;
     border: 0;
 }
 
@@ -258,11 +257,11 @@ legend {
     display: block;
     width: 100%;
     max-width: 100%;
-    padding: 0;
     margin-bottom: .5rem;
+    padding: 0;
+    color: inherit;
     font-size: 1.5rem;
     line-height: inherit;
-    color: inherit;
     white-space: normal;
 }
 

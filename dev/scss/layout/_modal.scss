@@ -1,0 +1,46 @@
+.modal {
+    display: none;
+}
+
+.modal-veil {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    display: none;
+    width: 100%;
+    height: 100vh;
+    background: rgba(map-get($palette, gold), .4);
+
+    .modal {
+        display: block;
+    }
+}
+
+.modals {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+
+    &.is-visible {
+        display: flex;
+
+        .modal-veil {
+            display: block;
+        }
+    }
+}
+
+.modal-wrapper {
+    position: relative;
+    z-index: 101;
+    max-width: rem(800);
+    padding: rem(30);
+    background: #fff;
+}

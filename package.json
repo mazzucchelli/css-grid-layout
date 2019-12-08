@@ -75,5 +75,8 @@
     "uglifyjs-webpack-plugin": "^1.2.4",
     "underscore-node": "^0.1.2",
     "vinyl-buffer": "^1.0.1"
+  },
+  "dependencies": {
+    "bunnyjs": "^0.14.42"
   }
 }

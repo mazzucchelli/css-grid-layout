@@ -21,15 +21,18 @@ module.exports = {
             styles: dest + 'css/',
             media: dest + 'assets/'
         },
-        vendors: [
-            // './node_modules/what-input/dist/what-input.min.js'
-        ]
+        vendors: []
     },
     styleguide: {
         template: './dev/templates/base/styleguide.hbs',
         src: [
-            dev + 'uikit/index',
-            dev + 'uikit/flexbox'
+            dev + 'uikit/card',
+            dev + 'uikit/cta',
+            dev + 'uikit/flexbox',
+            dev + 'uikit/form',
+            dev + 'uikit/grid',
+            dev + 'uikit/modal',
+            dev + 'uikit/typo'
         ],
         dest: dest + 'uikit'
     },

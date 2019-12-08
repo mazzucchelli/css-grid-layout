@@ -1,0 +1,36 @@
+.card {
+    display: grid;
+    grid-template-areas:
+        "image"
+        "title"
+        "copy"
+        "actions";
+
+    &-image {
+        grid-area: image;
+    }
+
+    &-title {
+        grid-area: title;
+    }
+
+    &-copy {
+        grid-area: copy;
+    }
+
+    &-actions {
+        grid-area: actions;
+    }
+
+    &-stiker {
+        position: relative;
+        grid-area: image;
+        // grid-area: 1 / 1 / 2 / auto;
+    }
+}
+
+.pos-abs {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
